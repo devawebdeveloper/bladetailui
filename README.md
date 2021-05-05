@@ -23,7 +23,7 @@ Available components
 
 ***
 
-Example of usage:
+*usage:*
 
 `<x-btui-alert type="success" >Success!</x-btui-alert>`
 
