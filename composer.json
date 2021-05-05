@@ -1,0 +1,28 @@
+{
+    "name": "devaweb/bladetailui",
+    "description": "Style Components with TailwindCss and Blade View Components and AlpineJs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Deva",
+            "email": "deva.webdeveloper@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Devaweb\\BladeTailUI\\BladeTailUIServiceProvider"
+            ],
+            "aliases": {},
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Devaweb\\BladeTailUI\\": "src/"
+        }
+    }
+}
