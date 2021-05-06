@@ -12,7 +12,7 @@ Perfectly comfortable with jetstream livewire stack. otherwise, you must install
 To install on your laravel project
 
 ``` 
-    composer require devaweb/bladetailui 
+composer require devaweb/bladetailui 
 ```
 
 
@@ -28,7 +28,7 @@ Available components
 
 ***
 
-**Usage Docs**
+**Usage**
 
 ## Alert
 
@@ -39,10 +39,48 @@ Available components
 #### Properties
 
 | Name     | Type    | Default | Options |
-|-------   |---      |---|---|
+|-------   |---      |---|---:|
 | Text     | String  | "" | Your message Here!   |
 | Type     | String  | Success | Primary,Success,Warning,Danger,Info |
 | Closable | Boolean | False |True or False  |
+
+***
+
+***
+
+## Button
+
+```
+<x-btui-button color="gray"> Click It! </x-btui-button>
+```
+
+#### Properties
+| Name     | Type    | Default | Options |
+|-------   |---      |---|---:|
+| Element     | String  | Button | button,a |
+| Color     | String  | white | White,Gray,Blue,Red,Green,Yellow,Purple,Pink,Indigo |
+| Size | String | Small | Small,Medium,Large  |
+
+<br>
+
+**If you want to use light color in buttons use "light" before color names Ex: lightgray**
+
+##### Dark Red Button
+```
+<x-btui-button color="red"> Click It! </x-btui-button>
+```
+
+##### Light Red Button
+```
+<x-btui-button color="lightred"> Click It! </x-btui-button>
+```
+
+<br/>
+
+<hr/>
+
+## Dropdown
+
 
 ***
 
