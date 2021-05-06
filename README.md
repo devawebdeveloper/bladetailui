@@ -40,7 +40,7 @@ Available components
 
 | Name     | Type    | Default | Options |
 |-------   |---      |---|---|
-| Text     | String  | "" | Your message Here!   |
+| Text     | String  | "" | - |
 | Type     | String  | Success | Primary,Success,Warning,Danger,Info |
 | Closable | Boolean | False |True or False  |
 
