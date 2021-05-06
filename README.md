@@ -39,14 +39,14 @@ Available components
 #### Properties
 
 | Name     | Type    | Default | Options |
-|-------   |---      |---|---:|
+|-------   |---      |---|---|
 | Text     | String  | "" | Your message Here!   |
 | Type     | String  | Success | Primary,Success,Warning,Danger,Info |
 | Closable | Boolean | False |True or False  |
 
 ***
 
-***
+<br/>
 
 ## Button
 
@@ -56,21 +56,23 @@ Available components
 
 #### Properties
 | Name     | Type    | Default | Options |
-|-------   |---      |---|---:|
+|-------   |---      |---|---|
 | Element     | String  | Button | button,a |
 | Color     | String  | white | White,Gray,Blue,Red,Green,Yellow,Purple,Pink,Indigo |
 | Size | String | Small | Small,Medium,Large  |
 
 <br>
 
-**If you want to use light color in buttons use "light" before color names Ex: lightgray**
+If you want to use light color in buttons use "light" before color names 
 
-##### Dark Red Button
+**Ex: lightgray**
+
+#### Dark Red Button
 ```
 <x-btui-button color="red"> Click It! </x-btui-button>
 ```
 
-##### Light Red Button
+#### Light Red Button
 ```
 <x-btui-button color="lightred"> Click It! </x-btui-button>
 ```
@@ -80,7 +82,22 @@ Available components
 <hr/>
 
 ## Dropdown
+Usage
+```
+<x-btui-dropdown text="menu">
+    <x-btui-dropdown-link> Home </x-btui-dropdown-link>
+    <x-btui-dropdown-link> Profile </x-btui-dropdown-link>
+    <x-btui-dropdown-link> Settings </x-btui-dropdown-link>
+</x-btui-dropdown>
+```
+<br/>
 
+#### Properties
+| Name     | Type    | Default | Options |
+|:-------  |:---:   |---|---|
+| Text     | String  | "" | -  |
+
+<br>
 
 ***
 
