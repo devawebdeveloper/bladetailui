@@ -21,8 +21,8 @@
     x-transition:leave="transition ease-in duration-75"
     x-transition:leave-start="transform opacity-100 scale-100"
     x-transition:leave-end="transform opacity-0 scale-95"
-        class="absolute top-0 left-0 z-50 origin-top">
-        <div class="py-1 bg-white border rounded-md shadow-lg">
+        class="absolute top-0 left-0 z-50 origin-top ">
+        <div class="min-w-full py-1 bg-white border rounded-md shadow-lg">
             {{ $slot }}
         </div>
     </div>

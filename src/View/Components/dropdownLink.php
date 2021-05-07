@@ -4,20 +4,16 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class smodal extends Component
-{   
-
-    public $title;
-
-
+class dropdownLink extends Component
+{
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = "SModal")
+    public function __construct()
     {
-        $this->title = $title;
+        //
     }
 
     /**
@@ -27,6 +23,6 @@ class smodal extends Component
      */
     public function render()
     {
-        return view('dwbtui::components.smodal');
+        return view('dwbtui::components.dropdown-link');
     }
 }
