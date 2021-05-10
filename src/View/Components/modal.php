@@ -13,7 +13,7 @@ class modal extends Component
 
     public $modalname;
 
-    public $align_values = [ 
+    public $align_values = [
         "left" => "justify-start",
         "right" => "justify-end",
         "center" => "justify-center"

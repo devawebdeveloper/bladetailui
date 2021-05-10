@@ -16,6 +16,8 @@ use Devaweb\BladeTailUI\View\Components\navbarMenu;
 use Devaweb\BladeTailUI\View\Components\navbarMenuLink;
 use Devaweb\BladeTailUI\View\Components\navbarTitle;
 use Devaweb\BladeTailUI\View\Components\smodal;
+use Devaweb\BladeTailUI\View\Components\tabs;
+use Devaweb\BladeTailUI\View\Components\toast;
 use Illuminate\Support\ServiceProvider;
 
 class BladeTailUIServiceProvider extends ServiceProvider
@@ -66,6 +68,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
                 modal::class,
                 smodal::class,
 
+                //toast
+                toast::class,
+
+                //tabs
+                tabs::class,
             ]
         );
 
