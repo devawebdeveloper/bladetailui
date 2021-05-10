@@ -1,13 +1,18 @@
 # BladeTailUI
 ### Blade Tailwind UI for Laravel with Alpine JS
 
-Perfectly comfortable with jetstream livewire stack. otherwise, you must install Alpine Js Manually!
+Perfectly comfortable with Laravel Breeze and Laravel Jetstream Starter Kits. otherwise, you must install Tailwind and Alpine Js Manually!
 
+#### Install Alpine JS
 ```
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 ```
 
 [Click to know more about Alpine JS](https://github.com/alpinejs/alpine)
+
+
+#### Intsall Tailwind CSS
+[Click to read the Installation docs!](https://tailwindcss.com/docs/guides/laravel)
 
 To install on your laravel project
 
@@ -25,6 +30,10 @@ Available components
 6. loader
 7. Hero
 8. Navbar
+9. Tabs
+10. Toast
+11. Modal
+12. Smodal
 
 ***
 
@@ -94,8 +103,8 @@ Usage
 
 #### Properties
 | Name     | Type    | Default | Options |
-|:-------  |:---:   |---|---|
-| Text     | String  | "" | -  |
+|:-------  |:---:    |---       |---      |
+| Text     | String  | ""      | -       |
 
 <br>
 
