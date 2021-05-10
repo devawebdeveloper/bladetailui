@@ -2,6 +2,7 @@
 
 namespace Devaweb\BladeTailUI;
 
+use Devaweb\BladeTailUI\View\Components\adminlayout;
 use Devaweb\BladeTailUI\View\Components\alert;
 use Devaweb\BladeTailUI\View\Components\select;
 use Devaweb\BladeTailUI\View\Components\button;
@@ -15,9 +16,12 @@ use Devaweb\BladeTailUI\View\Components\navbar;
 use Devaweb\BladeTailUI\View\Components\navbarMenu;
 use Devaweb\BladeTailUI\View\Components\navbarMenuLink;
 use Devaweb\BladeTailUI\View\Components\navbarTitle;
+use Devaweb\BladeTailUI\View\Components\sidenav;
+use Devaweb\BladeTailUI\View\Components\sloader;
 use Devaweb\BladeTailUI\View\Components\smodal;
 use Devaweb\BladeTailUI\View\Components\tabs;
 use Devaweb\BladeTailUI\View\Components\toast;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class BladeTailUIServiceProvider extends ServiceProvider
@@ -29,7 +33,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
      */ 
     public function register()
     {
-        //
+        
     }
 
     /**
@@ -39,6 +43,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        Cache::forever('btui.menu', []);
+        $GLOBALS['btui'] = [];
+        $GLOBALS['btui']['menu'] = [];
+
         //blde components
         $this->loadViewComponentsAs(
             'btui', 
@@ -63,6 +72,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
                 select::class,
                 //loader
                 loader::class,
+                sloader::class,
 
                 //modals
                 modal::class,
@@ -73,6 +83,12 @@ class BladeTailUIServiceProvider extends ServiceProvider
 
                 //tabs
                 tabs::class,
+
+                //sidenav
+                sidenav::class,
+
+                //admin layout
+                adminlayout::class,
             ]
         );
 

@@ -2,23 +2,18 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
-use Devaweb\BladeTailUI\Traits\btuiMenu;
 use Illuminate\View\Component;
 
-class dropdown extends Component
+class sloader extends Component
 {
-    use btuiMenu;
-
-    public $text;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text = "Click")
+    public function __construct()
     {
-        $this->text = $text;
+        //
     }
 
     /**
@@ -28,6 +23,6 @@ class dropdown extends Component
      */
     public function render()
     {
-        return view('dwbtui::components.dropdown');
+        return view('dwbtui::components.sloader');
     }
 }
