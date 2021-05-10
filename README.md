@@ -30,6 +30,10 @@ Available components
 6. loader
 7. Hero
 8. Navbar
+9. Tabs
+10. Toast
+11. Modal
+12. Smodal
 
 ***
 
@@ -99,8 +103,8 @@ Usage
 
 #### Properties
 | Name     | Type    | Default | Options |
-|:-------  |:---:   |---|---|
-| Text     | String  | "" | -  |
+|:-------  |:---:    |---       |---      |
+| Text     | String  | ""      | -       |
 
 <br>
 
