@@ -65,7 +65,7 @@ Available components
 
 If you want to use light color in buttons use "light" before color names 
 
-**Ex: lightgray**
+**Ex: light-gray**
 
 #### Dark Red Button
 ```
@@ -74,7 +74,7 @@ If you want to use light color in buttons use "light" before color names
 
 #### Light Red Button
 ```
-<x-btui-button color="lightred"> Click It! </x-btui-button>
+<x-btui-button color="light-red"> Click It! </x-btui-button>
 ```
 
 <br/>
