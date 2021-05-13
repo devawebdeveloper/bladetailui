@@ -1,37 +1,104 @@
-## Welcome to GitHub Pages
+# BladeTailUI
+### Blade Tailwind UI for Laravel with Alpine JS
 
-You can use the [editor on GitHub](https://github.com/devawebdeveloper/bladetailui/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Perfectly comfortable with jetstream livewire stack. otherwise, you must install Alpine Js Manually!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+[Click to know more about Alpine JS](https://github.com/alpinejs/alpine)
 
-### Jekyll Themes
+To install on your laravel project
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/devawebdeveloper/bladetailui/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+``` 
+composer require devaweb/bladetailui 
+```
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Available components
+1. Alert
+2. Button
+3. Dropdown
+4. Input
+5. Select
+6. loader
+7. Hero
+8. Navbar
+
+***
+
+**Usage**
+
+## Alert
+
+```
+<x-btui-alert type="success"> Success! </x-btui-alert>
+```
+
+#### Properties
+
+| Name     | Type    | Default | Options |
+|-------   |---      |---|---|
+| Text     | String  | "" | - |
+| Type     | String  | Success | Primary,Success,Warning,Danger,Info |
+| Closable | Boolean | False |True or False  |
+
+***
+
+<br/>
+
+## Button
+
+```
+<x-btui-button color="gray"> Click It! </x-btui-button>
+```
+
+#### Properties
+| Name     | Type    | Default | Options |
+|-------   |---      |---|---|
+| Element     | String  | Button | button,a |
+| Color     | String  | white | White,Gray,Blue,Red,Green,Yellow,Purple,Pink,Indigo |
+| Size | String | Small | Small,Medium,Large  |
+
+<br>
+
+If you want to use light color in buttons use "light" before color names 
+
+**Ex: light-gray**
+
+#### Dark Red Button
+```
+<x-btui-button color="red"> Click It! </x-btui-button>
+```
+
+#### Light Red Button
+```
+<x-btui-button color="light-red"> Click It! </x-btui-button>
+```
+
+<br/>
+
+<hr/>
+
+## Dropdown
+Usage
+```
+<x-btui-dropdown text="menu">
+    <x-btui-dropdown-link> Home </x-btui-dropdown-link>
+    <x-btui-dropdown-link> Profile </x-btui-dropdown-link>
+    <x-btui-dropdown-link> Settings </x-btui-dropdown-link>
+</x-btui-dropdown>
+```
+<br/>
+
+#### Properties
+| Name     | Type    | Default | Options |
+|:-------  |:---:   |---|---|
+| Text     | String  | "" | -  |
+
+<br>
+
+***
+
+More components are under development. It will be updated soon.
