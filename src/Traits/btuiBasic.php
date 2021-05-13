@@ -76,10 +76,10 @@ trait btuiBasic
     ];
 
     public $tFormTypes = [
-        'default' => ' border-gray-300 ',
-        'success' => ' border-green-500 ',
-        'warning' => ' border-yellow-400 ',
-        'danger' => ' border-red-600 ',
+        'default' => 'gray',
+        'success' => 'green',
+        'warning' => 'yellow',
+        'danger' => 'red',
     ];
 
     public $colorVar = [

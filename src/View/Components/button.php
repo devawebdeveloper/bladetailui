@@ -2,6 +2,7 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
+use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
@@ -13,17 +14,22 @@ class button extends Component
 
     public $color;
 
-    public $basic_style = "inline-block capitalize cursor-pointer 
-    border-b transition-all duration-300
-    rounded shadow hover:shadow-sm min-w-min";
+    public $basic_style = [
+        "inline-block", 'capitalize', 'cursor-pointer', 
+         'shadow-sm','transition-all', 'duration-300', 
+        'rounded', 'min-w-min', 'hover:shadow'];
 
     public $size;
 
     public $sizeStyle = [
-        'small' => 'px-3 py-1 text-sm',
-        'medium' => 'px-4 py-2',
-        'large' => 'px-8 py-3'
+        'small' => ['px-3','py-1','text-sm'],
+        'medium' => ['px-4','py-2'],
+        'large' => ['px-8','py-3']
     ];
+
+    public $style;
+
+    public $isLight = false;
 
 
     /**
@@ -40,14 +46,19 @@ class button extends Component
         $color = "white",
         $size = "small"
     ) {
-        $this->sizeStyle = $this->tFormSizes;
         $this->element = $element;
-        //$this->basic_style = $this->tFormStyle;
-        //restyle
-        $this->basic_style .= " ";
-        $this->basic_style .= $this->tFormSizes[$size];
-        $this->basic_style .= " ";
-        $this->basic_style .= $this->colors[$color];
+        $this->color = $color;
+
+        //dd($this->color);
+
+        $this->style = Btui::theme($this->color)->add($this->basic_style)
+            ->padding($size, 'form')
+            ->bg()
+            ->text()
+            ->get(); 
+        
+        $this->style .=" ". Btui::theme($this->color)
+            ->bg()->hover()->get();
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace Devaweb\BladeTailUI;
 
+require_once __DIR__."/Helpers/helpers.php";
+
+use Devaweb\BladeTailUI\Classes\Btui;
 use Devaweb\BladeTailUI\View\Components\adminlayout;
 use Devaweb\BladeTailUI\View\Components\alert;
 use Devaweb\BladeTailUI\View\Components\select;
@@ -12,6 +15,7 @@ use Devaweb\BladeTailUI\View\Components\hero;
 use Devaweb\BladeTailUI\View\Components\input;
 use Devaweb\BladeTailUI\View\Components\loader;
 use Devaweb\BladeTailUI\View\Components\modal;
+use Devaweb\BladeTailUI\View\Components\nav;
 use Devaweb\BladeTailUI\View\Components\navbar;
 use Devaweb\BladeTailUI\View\Components\navbarMenu;
 use Devaweb\BladeTailUI\View\Components\navbarMenuLink;
@@ -21,6 +25,7 @@ use Devaweb\BladeTailUI\View\Components\sloader;
 use Devaweb\BladeTailUI\View\Components\smodal;
 use Devaweb\BladeTailUI\View\Components\tabs;
 use Devaweb\BladeTailUI\View\Components\toast;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,7 +38,12 @@ class BladeTailUIServiceProvider extends ServiceProvider
      */ 
     public function register()
     {
-        
+        App::singleton(
+            'btui', 
+            function () {
+                return new Btui();
+            }
+        );
     }
 
     /**
@@ -86,6 +96,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
 
                 //sidenav
                 sidenav::class,
+                nav::class,
 
                 //admin layout
                 adminlayout::class,

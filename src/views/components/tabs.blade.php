@@ -8,12 +8,12 @@
         <div class=" {{ $align == 'left' ? ' w-2/12 ' : 'flex items-center justify-start' }}">
             @foreach ($tabs as $tab )
                 <div @click="selectTab('{{ $tab }}')" class="px-4 py-1 capitalize transition-all duration-300 {{ $align == 'left' ? '' : ' rounded-t' }} cursor-pointer "
-                    :class="(tabs['{{ $tab }}'] == true) ? ' bg-{{ $theme }}-{{ $tmedium }} text-white' : ' border-transparent hover:bg-{{ $theme }}-200' ">
+                    :class="(tabs['{{ $tab }}'] == true) ? ' {{ btui($theme)->bg(600)->text()->get() }} ' : ' border-transparent {{ btui($theme)->bg(200)->hover()->get() }} ' ">
                     {{ $tab }}
                 </div>
             @endforeach
         </div>
-        <div class="bg-white border-{{ $theme }}-{{ $tmedium }} shadow {{ $align == 'left' ? 'w-10/12 border-l-4' : 'w-full border-t-4' }}">
+        <div class="bg-white {{ btui($theme)->border()->get() }} shadow {{ $align == 'left' ? 'w-10/12 border-l-4' : 'w-full border-t-4' }}">
             @foreach ($tabs as $tab)
             <div x-show="tabs.{{ $tab }}" class="px-4 py-2">
                 {{ ${$tab} ?? '' }}

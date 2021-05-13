@@ -23,6 +23,7 @@
     "autoload": {
         "psr-4": {
             "Devaweb\\BladeTailUI\\": "src/"
-        }
+        },
+        "files": []
     }
 }

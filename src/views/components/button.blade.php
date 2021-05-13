@@ -1,11 +1,11 @@
 <div>
 
     @if($element == 'button')
-        <button {{ $attributes->merge(["class" => $basic_style]) }}>
+        <button {{ $attributes->merge(["class" => $style]) }}>
             {{ $slot }}
         </button>
     @elseif ($element == 'a')
-        <a {{ $attributes->merge(["class" => $basic_style]) }}>
+        <a {{ $attributes->merge(["class" => $style]) }}>
             {{ $slot }}
         </a>
     @endif

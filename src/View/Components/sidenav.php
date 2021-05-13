@@ -2,6 +2,7 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
+use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiMenu;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
@@ -32,31 +33,27 @@ class sidenav extends Component
      */
     public function __construct(
         $sections = 'main:1',
-        $color = 'white'
+        $color = 'light-green'
     ) {
 
-        Cache::remember(
-            'btui.sidenav', 
-            now()->addMinutes(30),
-            function () use ($sections) {
-                $this->sections = explode(',', $sections);
 
-                foreach ($this->sections as $ind => $sec) {
-                    $sec = explode(':', $sec);
-                    $this->menu[$sec[0]] = [
-                        'count' => $sec[1],
-                        'open' => ($ind == 0) ? true : false
-                    ];
-                } 
-            }
-        );
-       
+        $this->sections = explode(',', $sections);
+
+        foreach ($this->sections as $ind => $sec) {
+            $sec = explode(':', $sec);
+            $this->menu[$sec[0]] = [
+                'count' => $sec[1],
+                'open' => ($ind == 0) ? true : false
+            ];
+        }
+
+
         $this->color = $color;
         $this->getStyle();
-        $this->linkStyle = 'block hover:shadow-sm px-5 py-2 capitalize 
-            transition-all duration-300 '
-            .$this->style['linktext'];
-        $this->active = $this->style['active'];
+        $this->linkStyle = Btui::theme($color)->add(['block', 'px-4', 'py-2'])->get()
+            . " " . $this->style['linktext'];
+        $this->active = Btui::theme($color)->add(['block', 'px-4', 'py-2'])->get()
+            ." ".$this->style['active'];
 
         //dd($this->menu);
     }
@@ -70,21 +67,37 @@ class sidenav extends Component
     {
         $color = $this->color;
 
-        $this->style['bg'] = ($color == 'white') 
-            ? ' bg-white ' : ' bg-'.$color.'-700 divide-'.$color.'-600 ';
+        $this->style['bg'] = Btui::theme($color)->bg()->divide()
+            ->get();
+        //  dd($this->style['bg']);        
 
-        $this->style['maintext'] = ($color == 'white') 
-            ? ' text-gray-600 hover:bg-gray-200 ' 
-            : ' text-'.$color.'-200 hover:bg-'.$color.'-800 ';
+        $this->style['maintext'] = Btui::theme($color)->text()->get();
+        $this->style['maintext'] .= " " . Btui::theme($color, true)
+            ->bg()->text()
+            ->hover()->get();
+        //dd($this->style['maintext']);    
 
-        $this->style['linktext'] = ($color == 'white') 
-            ? ' text-gray-900 hover:bg-gray-100 ' 
-            : ' text-'.$color.'-100 hover:bg-'.$color.'-600 ';
-        
-        $this->style['active'] = ($color == 'white')
-            ? ' bg-gray-100 shadow-sm' : ' bg-'.$color.'-600 shadow-sm ';
-    
+        $this->style['linktext'] = Btui::theme($color)->text()->get();
+        $this->style['linktext'] .= " " . Btui::theme($color, true)->bg()
+            ->text()->hover()->get();
+        //dd($this->style['linktext']);
+        $this->style['active'] = Btui::theme($color, true)->bg()
+            ->text()
+            ->get(); 
+           // dd($this->style['active']);
+    }
 
+    /**
+     * Link style
+     *
+     * @param boolean $active 
+     * 
+     * @return string
+     */
+    public function linkStyle($active = false)
+    {
+        $index = ($active) ? $this->active : $this->linkStyle; 
+        return $index;
     }
 
     /**

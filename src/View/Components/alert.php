@@ -9,7 +9,7 @@ class alert extends Component
 
     public $text;
 
-    public $type;
+    public $color;
 
     public $types = [
         'success' => [
@@ -45,18 +45,18 @@ class alert extends Component
      * Create a new component instance.
      * 
      * @param string $text 
-     * @param string $type 
+     * @param string $color 
      * @param bool   $closable  
      * 
      * @return void
      */
     public function __construct(
         $text = "",
-        $type = 'success',
+        $color = 'green',
         $closable = false
     ) {
         $this->text = $text;
-        $this->type = $type;
+        $this->color = $color;
         $this->closable = $closable;    
     }
 

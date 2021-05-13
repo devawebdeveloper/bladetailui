@@ -1,5 +1,5 @@
 {{-- main div ------------------ --}}
-<div x-data="MobileFirstLayout()" x-init="showHideInit()" class="fixed top-0 bottom-0 left-0 right-0" x-cloak>
+<div x-data="MobileFirstLayout()" x-init="showHideInit()" class="fixed top-0 bottom-0 left-0 right-0 " x-cloak>
 
     {{-- side bar navigation ---------------------------------------------------------------- --}}
     <div x-show="sidenav"
@@ -10,11 +10,11 @@
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform -translate-x-full"
     
-    class="fixed top-0 bottom-0 left-0 z-50 w-10/12 overflow-y-auto {{ $style['bg'] }} border-r shadow-lg sm:w-6/12 md:w-4/12 lg:w-1/5 xl:2/12">
+    class="fixed top-0 bottom-0 left-0 z-50 w-10/12 overflow-y-auto {{ $style['bg'] }} shadow sm:w-6/12 md:w-4/12 lg:w-1/5 xl:2/12">
         
-        <div class="flex justify-end border-b border-{{ $color }}-800">
+        <div class="flex justify-end border-b border-{{ $color }}-800 lg:hidden">
             <div  x-on:click="sidenav = false"
-                class="px-3 py-1  text-2xl text-black {{ $style['closebutton'] }} lg:hidden">
+                class="px-3 py-1  text-2xl text-black cursor-pointer {{ $style['closebutton'] }} lg:hidden">
             &times;</div>
         </div>
         
@@ -30,26 +30,37 @@
         <div class="">
 
             {{-- content header---------------- --}}
-        <div class="w-full px-4 py-3 border-b" >
+        <div class="w-full px-4 py-3 shadow-sm border-t-4 {{ $style['hbg'] }}" >
             <div class="container mx-auto">
                 
-                <div class="flex justify-between">
+                <div class="flex items-center justify-between">
                     {{-- header left --}}
-                    <div class="text-xl cursor-pointer ">
-                        <p class="flex items-center">
-                            <i x-on:click="showHide()" class="material-icons">menu</i>
-                            <span class="px-4 capitalize">{{ $sitetitle ?? '' }}</span>
+                    <div class="cursor-pointer">
+                        <p class="flex items-center justify-start">
+                            <span x-on:click="showHide()" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                  </svg>
+                            </span>
+                            <span class="px-4 text-xl capitalize ">{{ $sitetitle ?? '' }}</span>
                         </p>
                         
                     </div>
                     {{-- header right --}}
                     <div class="">
-                        {{ $header_right ?? '' }}
+                        {{ $headerright ?? '' }}
                     </div>
                 </div>
                 
             </div>
             
+        </div>
+
+        {{-- header bottom --}}
+        <div class="w-full {{ $headerbottom ?? btui($color)->add(['border-t','border-b'])->bg()->border()->get() }}">
+            <div class="container mx-auto">
+                {{ $headerbottom ?? '' }}
+            </div>
         </div>
 
         <div class="container mx-auto overflow-y">

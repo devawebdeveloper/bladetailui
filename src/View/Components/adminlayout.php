@@ -2,6 +2,7 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
+use Devaweb\BladeTailUI\Facades\Btui;
 use Illuminate\View\Component;
 
 class adminlayout extends Component
@@ -21,17 +22,22 @@ class adminlayout extends Component
      */
     public function __construct(
         $sitetitle = '',
-        $color = 'white'
+        $color = 'white',
+        $headercolor = ''
     ) {
 
         $this->sitetitle = $sitetitle;
         $this->color = $color;
 
-        $this->style['bg'] = $color == 'white' 
-            ? 'bg-white' : 'bg-'.$color.'-700';
+        $this->style['bg'] = Btui::theme($color)->bg()
+            ->add(['border-t-4'])->border(700)->text()->get();
         
-        $this->style['closebutton'] = $color == 'white' 
-            ? 'bg-gray-300 text-black' : 'bg-'.$color.'-800 text-white ';
+        $headercolor = ($headercolor == '') ? $color : $headercolor;    
+        $this->style['hbg'] = Btui::theme($headercolor)
+            ->gradient('r')
+            ->border(700)->text()->get();
+        
+        $this->style['closebutton'] = Btui::theme($color)->bg()->text()->get();
         
     }
 

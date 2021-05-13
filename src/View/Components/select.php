@@ -2,6 +2,7 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
+use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
@@ -20,13 +21,23 @@ class select extends Component
      *
      * @return void
      */
-    public function __construct($type="default", $size = 'small', $options = [], $placeholder = 'select...')
-    {   
+    public function __construct(
+        $type="default", 
+        $size = 'small', 
+        $options = [], 
+        $placeholder = 'Select...'
+    ) {   
 
         $this->options = $options;
         $this->placeholder = $placeholder;
+
+        $color = $this->tFormTypes[$type];
         //out
-        $this->style = $this->getFormStyle($type, $size);
+        $this->style = Btui::theme($color)
+            ->add(['w-full','min-w-min','rounded','border','outline-none'])
+            ->padding($size, 'form')
+            ->border()
+            ->get();
     }
 
     /**

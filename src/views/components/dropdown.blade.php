@@ -2,16 +2,8 @@
     <div class="relative min-w-min"
         x-data="{open:false}" @click.away="open = false" @close.stop="open = false" x-cloak>
 
-    <div x-on:click="open = !open" {{ $attributes->merge(['class' => 'flex justify-between py-1 bg-white border rounded cursor-pointer hover:shadow-sm']) }}>
-        <div class="px-4">{{ $text }}</div>
-        <div class="px-4">
-            <template x-if="open">
-                <i class="fa fa-angle-up"></i>
-            </template>
-            <template x-if="!open">
-                <i class="fa fa-angle-down"></i>
-            </template>
-            </div>
+    <div x-on:click="open = !open" {{ $attributes->merge(['class' => $style]) }}>
+        <div class="">{{ $text }}</div>
     </div>
     
     <div x-show="open"
