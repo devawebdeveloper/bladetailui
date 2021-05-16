@@ -13,20 +13,37 @@ class input extends Component
 
     public $style;
 
+    public $icon;
+
+    public $color;
+
+    public $iconstyle;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type="default", $size = 'small')
+    public function __construct($type="default", $size = 'small', $showicon = true)
     { 
-        $color = $this->tFormTypes[$type];
+        $color = config('btui.formTypes.'.$type.'.color');
+        $this->color = $color;
         //out
         $this->style = Btui::theme($color)
             ->add(['rounded','border','w-full','outline-none'])
             ->padding($size, 'form')
-            ->border()
+            ->border(300)
             ->get();
+
+        //icon
+        $this->icon = $showicon ? config('btui.formTypes.'.$type.'.icon') : false;
+
+        if ($size == 'small') {
+            $this->iconstyle = 'text-sm w-5 h-5';
+        } else {
+            $this->iconstyle = 'text-sm w-6 h-6';
+        } 
+
     }
 
     /**

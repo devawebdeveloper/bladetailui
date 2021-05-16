@@ -60,48 +60,6 @@ class Btui
         ],
     ];
 
-    public $sc = [
-        'white' => [
-
-            'bg' => 'white',
-
-            'border' => [
-                'color' => 'gray',
-                'var' => 200
-            ],
-
-            'divide' => [
-                'color' => 'gray',
-                'var' => 200
-            ],
-
-            'text' => [
-                'color' => 'gray',
-                'var' => 900
-            ],
-        ],
-
-        'black' => [
-
-            'bg' => 'black',
-
-            'border' => [
-                'color' => 'gray',
-                'var' => 700
-            ],
-
-            'divide' => [
-                'color' => 'gray',
-                'var' => 700
-            ],
-
-            'text' => [
-                'color' => 'gray',
-                'var' => 100
-            ],
-        ],
-    ];
-
     public $final = [];
 
     /**
@@ -110,8 +68,16 @@ class Btui
      * @param string $theme 
      * @param string $hover 
      */
-    function __construct($theme = 'gray', $hover = 'false')
+    function __construct($theme = '', $hover = 'false')
     {
+
+        $this->padding = config('btui.padding');
+        $this->formPadding = config('btui.formPadding');
+        $this->colorVar = config('btui.colorVar');
+        $this->hoverVar = config('btui.hoverVar');
+
+        $theme = ($theme == '') ? config('btui.theme') : $theme;
+
         $theme = explode('-', $theme);
 
         if (count($theme) == 1) {
@@ -125,7 +91,7 @@ class Btui
         $this->hover = $hover;
         $this->hoverType = ($this->themeType == 'dark') ? 'light' : 'dark';
         //dd($this->theme, $this->themeType, $this->hover, $this->hoverType);
-        
+
     }
 
     /**
@@ -136,35 +102,10 @@ class Btui
      * 
      * @return void
      */
-    public function theme($theme = 'gray', $hover = false)
+    public function theme($theme = '', $hover = false)
     {
         //$this->theme = $theme;
         return new Btui($theme, $hover);
-    }
-
-    /**
-     * Set Hover type
-     *  
-     * @return void
-     */
-    public function setHoverType()
-    {
-        $tt = $this->themeType;
-
-
-        switch ($tt) {
-        case('dark'):
-            $hover = 'light';
-            break;
-
-        case('light'):
-            $hover = 'dark';
-            break;
-
-        }
-        
-        $this->hoverType = $hover;
-        return $this;
     }
 
     /**
@@ -175,8 +116,8 @@ class Btui
      * 
      * @return int
      */
-    public function themetype($var, $for = '') 
-    {   
+    public function themetype($var, $for = '')
+    {
         if ($var == 0) {
             $ttype = ($this->hover) ? $this->hoverVar : $this->colorVar;
             //dd($ttype, $this->themeType);
@@ -194,8 +135,8 @@ class Btui
      * @return object
      */
     public function add($styles = [])
-    {   
-        
+    {
+
         if (count($styles) > 0) {
             foreach ($styles as $style) {
                 if (!in_array($style, $this->final)) {
@@ -214,11 +155,13 @@ class Btui
      * 
      * @return object
      */
-    public function padding($size = 'small', $type = 'normal')
+    public function padding($size = '', $type = 'normal')
     {
-        $padding = ($type == 'normal') 
-                    ? $this->padding[$size]
-                    : $this->formPadding[$size];
+        $size = ($size == '') ? config('btui.size') : $size;
+
+        $padding = ($type == 'normal')
+            ? $this->padding[$size]
+            : $this->formPadding[$size];
 
         array_push($this->final, $padding);
         return $this;
@@ -235,7 +178,7 @@ class Btui
      * @return object
      */
     public function bg($var = 0, $color = "")
-    {   
+    {
         $color = ($color == "") ? $this->theme : $color;
         $this->prepare('bg', $color, $var);
         return $this;
@@ -263,7 +206,8 @@ class Btui
      */
     public function divide($var = 0)
     {
-        $this->prepare('divide', $this->theme, $var);
+        $var =
+            $this->prepare('divide', $this->theme, $var);
         return $this;
     }
 
@@ -290,24 +234,22 @@ class Btui
      * 
      * @return object
      */
-    public function gradient($dir = 'l', $fvar = 500, $vvar = 600, $tvar = 700 )
-    {   
-        if ($this->theme == 'white') {
-            $gr = ['bg-white'];
-        } else {
-            if ($this->themeType == 'light') {
-                $fvar = $fvar - 500;
-                $vvar = $vvar - 500;
-                $tvar = $tvar - 400;
-            }
-    
-            $gr = [
-                'bg-gradient-to-'.$dir,
-                'from-'.$this->theme.'-'.$fvar,
-                'via-'.$this->theme.'-'.$vvar,
-                'to-'.$this->theme.'-'.$tvar,
-            ];
+    public function gradient($dir = 'l', $fvar = 500, $vvar = 600, $tvar = 700)
+    {
+
+        if ($this->themeType == 'light') {
+            $fvar = $fvar - 500;
+            $vvar = $vvar - 500;
+            $tvar = $tvar - 400;
         }
+
+        $gr = [
+            'bg-gradient-to-' . $dir,
+            'from-' . $this->theme . '-' . $fvar,
+            'via-' . $this->theme . '-' . $vvar,
+            'to-' . $this->theme . '-' . $tvar,
+        ];
+
 
         $this->add($gr);
 
@@ -325,25 +267,11 @@ class Btui
      * @return void
      */
     protected function prepare($name, $color, $var, $sep = '-')
-    {   
+    {
         $var = $this->themetype($var, $name);
 
-        $p = '';
+        $p = $name . $sep . $color . $sep . $var;
 
-        if ($color == 'white' || $color == 'black') {
-
-            if ($name == 'bg') {
-                $p = $name.$sep.$this->sc[$color][$name];
-            } else {
-                $p = $name.$sep.$this->sc[$color][$name]['color']
-                    .$sep.$this->sc[$color][$name]['var'];
-            }
-            
-
-        } else {
-            $p = $name.$sep.$color.$sep.$var;
-        }
-        
         array_push($this->final, $p);
     }
 
@@ -354,22 +282,16 @@ class Btui
      * @return object
      */
     public function hover()
-    {   
+    {
         $final = [];
-        
+
         foreach ($this->final as $f) {
-            if ($f == 'bg-white') {
-                $sf = 'hover:bg-gray-200'; 
-            } elseif ($f == 'bg-black') {
-                $sf = 'hover:bg-gray-900';
-            } else {
-                $sf = 'hover:'.$f;
-            }
+            $sf = 'hover:' . $f;
             array_push($final, $sf);
         }
-        
+
         $this->final = $final;
-        
+
         return $this;
     }
 
@@ -395,5 +317,4 @@ class Btui
     {
         return $this->bg($bvar)->divide($dvar)->text($tvar)->get();
     }
-
 }

@@ -9,6 +9,6 @@ use Devaweb\BladeTailUI\Facades\Btui;
  * 
  * @return void
  */
-function btui($theme) {
-    return Btui::theme($theme);
+function btui($theme, $hover = false) {
+    return Btui::theme($theme, $hover);
 }

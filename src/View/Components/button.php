@@ -4,13 +4,14 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
+
+use function PHPUnit\Framework\isEmpty;
 
 class button extends Component
 {
     use btuiBasic;
-
-    public $element;
 
     public $color;
 
@@ -42,23 +43,40 @@ class button extends Component
      * @return void
      */
     public function __construct(
-        $element = "button",
-        $color = "white",
-        $size = "small"
+        $color = "",
+        $size = ""
     ) {
-        $this->element = $element;
-        $this->color = $color;
-
-        //dd($this->color);
-
-        $this->style = Btui::theme($this->color)->add($this->basic_style)
-            ->padding($size, 'form')
-            ->bg()
-            ->text()
-            ->get(); 
         
-        $this->style .=" ". Btui::theme($this->color)
+        $this->color = $color;
+        $this->size = ($size == '') ? config('btui.button.size') : $size;
+
+        $this->setStyle();
+
+    }
+
+    public function setStyle()
+    {   
+        $this->style = config('btui.button.basic')." ";
+
+        $c = Btui::theme($this->color)
+            ->padding($this->size);
+
+        if ($this->color == 'white') {
+            $c->add(['btn-white']);
+        } elseif ($this->color == 'black') {
+            $c->add(['btn-black']);
+        } else {
+            $c->add(['border'])
+            ->bg()->border()
+            ->text();
+        }
+    
+        $this->style .= $c->get()." ";
+        
+        $this->style .=" ". Btui::theme($this->color, true)
             ->bg()->hover()->get();
+        
+        $this->style .= ' '.config('btui.button.extra-hover-effect');
     }
 
     /**

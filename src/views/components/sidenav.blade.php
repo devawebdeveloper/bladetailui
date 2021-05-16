@@ -5,7 +5,7 @@
     @endphp
     
     <div x-data="manageMenus('{{ $menus }}')" x-init="init()" x-cloak
-        class="w-full min-h-full overflow-y-auto {{ $style['bg'] }} divide-y ">
+        class="w-full min-h-full overflow-y-auto {{ $style['bg'] }}">
         @foreach ($menu as $m => $mv)
             <div class="">
                @if($mv['count'] == 1 || $mv['count'] == null)
@@ -17,7 +17,7 @@
                 <div 
                     class="relative capitalize transition-all duration-300 cursor-pointer">
                     <div @click="openMenu('{{ $m }}')" 
-                        class="px-4 py-2 {{ $style['maintext'] }}">
+                        class="px-4 py-2 shadow {{ $style['maintext'] }}">
                         {{ $m }}
 
                         <div class="absolute px-2 right-2 top-2">

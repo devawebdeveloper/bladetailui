@@ -53,11 +53,6 @@ class BladeTailUIServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        Cache::forever('btui.menu', []);
-        $GLOBALS['btui'] = [];
-        $GLOBALS['btui']['menu'] = [];
-
         //blde components
         $this->loadViewComponentsAs(
             'btui', 
@@ -105,5 +100,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
 
         //views
         $this->loadViewsFrom(__DIR__ . "/views", "dwbtui");
+
+        //publish config
+        $this->publishes([
+            __DIR__."/config/btui.php" => config_path('btui.php'),
+            __DIR__."../../css/btui.css" => resource_path('css/btui.css')
+        ], 'btui');
     }
 }

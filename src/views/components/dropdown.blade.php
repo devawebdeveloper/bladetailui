@@ -1,20 +1,32 @@
 <div >
-    <div class="relative min-w-min"
+    <div class="relative"
         x-data="{open:false}" @click.away="open = false" @close.stop="open = false" x-cloak>
 
-    <div x-on:click="open = !open" {{ $attributes->merge(['class' => $style]) }}>
+    <div x-on:click="open = !open" {{ $attributes->merge(['class' => $style." flex justify-between items-center gap-4"]) }}>
         <div class="">{{ $text }}</div>
+        @if($icon)
+        <div class="text-gray-500">
+            <template x-if="!open">
+                <div class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                </div>
+            </template>
+            <template x-if="open">
+                <div class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                      </svg>
+                </div>
+            </template>
+        </div>
+        @endif
     </div>
     
-    <div x-show="open"
-    x-transition:enter="transition ease-out duration-200"
-    x-transition:enter-start="transform opacity-0 scale-95"
-    x-transition:enter-end="transform opacity-100 scale-100"
-    x-transition:leave="transition ease-in duration-75"
-    x-transition:leave-start="transform opacity-100 scale-100"
-    x-transition:leave-end="transform opacity-0 scale-95"
-        class="absolute top-0 left-0 z-50 origin-top ">
-        <div class="min-w-full py-1 bg-white border rounded-md shadow-lg">
+    <div x-show.transition="open"
+        class="absolute z-50 origin-top-{{ $align }} {{ $align }}-0 ">
+        <div class="py-1 bg-white border rounded-md shadow-lg min-w-max">
             {{ $slot }}
         </div>
     </div>

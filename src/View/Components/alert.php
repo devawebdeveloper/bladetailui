@@ -39,7 +39,11 @@ class alert extends Component
         ]
     ];
 
+    public $icon;
+
     public $closable;
+
+    public $size;
 
     /**
      * Create a new component instance.
@@ -52,12 +56,15 @@ class alert extends Component
      */
     public function __construct(
         $text = "",
-        $color = 'green',
-        $closable = false
+        $type = 'default',
+        $closable = false,
+        $size = ''
     ) {
         $this->text = $text;
-        $this->color = $color;
+        $this->color = config('btui.formTypes.'.$type.'.color');
         $this->closable = $closable;    
+        $this->icon = config('btui.formTypes.'.$type.'.icon');
+        $this->size = $size == '' ? config('btui.alert.size') : $size;
     }
 
     /**

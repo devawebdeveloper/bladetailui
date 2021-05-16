@@ -1,6 +1,6 @@
 {
     "name": "devaweb/bladetailui",
-    "description": "Style Components with TailwindCss and Blade View Components and AlpineJs",
+    "description": "Laravel Blade UI Components with TailwindCss and AlpineJs",
     "type": "library",
     "license": "MIT",
     "authors": [

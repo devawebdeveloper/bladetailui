@@ -1,0 +1,78 @@
+:root {
+    --light-var: 300;
+    --dark-var: 700;
+}
+
+/*
+    Default Transition Effect and time
+*/
+.trans {
+    @apply transition-all;
+    @apply duration-300; 
+}
+
+/*
+    Button ------------------------------------
+*/
+.btn-basic {
+    @apply inline-flex;
+    @apply capitalize;
+    @apply cursor-pointer;
+    @apply min-w-min;
+    @apply rounded;
+    @apply trans;
+}
+
+.btn-sm {
+    @apply px-4;
+    @apply py-1;
+    @apply text-sm;
+}
+
+.btn-md {
+    @apply px-6;
+    @apply py-2;
+}
+
+.btn-lg {
+    @apply px-8;
+    @apply py-3;
+    @apply text-lg;
+}
+
+.btn-white {
+    @apply btui-white;
+    @apply btn-basic;
+    @apply shadow;
+}
+
+.btn-white:hover {
+    @apply shadow-sm;
+}
+
+.btn-black {
+    @apply btn-basic;
+    @apply btui-black;
+}
+
+.btn-black:hover {
+    @apply bg-gray-700;
+}
+
+.btui-white {
+    @apply bg-white;
+    @apply text-black;
+}
+
+
+.btui-black {
+    @apply bg-black;
+    @apply text-white;
+}
+
+.btui-black:hover {
+    @apply shadow;
+}
+
+
+
