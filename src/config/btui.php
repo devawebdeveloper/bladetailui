@@ -83,6 +83,5 @@ return [
              'icon' => 'fa fa-exclamation-circle'
         ],
 
-    ],
-
+    ]
 ];
