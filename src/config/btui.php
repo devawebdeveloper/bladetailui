@@ -85,47 +85,4 @@ return [
 
     ],
 
-    // Alert Basic Config 
-    
-    'alert' => [
-        //defalt size - options = medium | large
-        'size' => 'medium',
-
-        //style
-        'outline'     => 'flex items-center justify-between gap-2 px-2 py-2 border-l-4 rounded shadow-sm',
-        'content'     => 'pl-1 pr-3 font-bold',
-        'closebutton' => 'px-2 font-bold border cursor-pointer rounded' 
-    ],
-
-    //Button Extra Config 
-    
-    'button' => [
-
-        //size - small | medium | large
-        'size' => '', 
-
-        'basic' => 'btn-basic shadow-sm',                                  
-        
-        'extra-hover-effect' => '', // Ex: hover:shadow-lg
-
-    ],
-
-    //-----------------------------------------------
-    //input
-    'input' => [
-
-        //size
-        'size' => 'medium' // small | medium | large
-    ],
-
-    //select
-    'select' => [
-
-        'size' => 'medium'
-    ],
-
-    //dropdown
-    'dropdown' => [
-        'size' => 'medium'
-    ]
 ];

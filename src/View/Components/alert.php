@@ -64,7 +64,22 @@ class alert extends Component
         $this->color = config('btui.formTypes.'.$type.'.color');
         $this->closable = $closable;    
         $this->icon = config('btui.formTypes.'.$type.'.icon');
-        $this->size = $size == '' ? config('btui.alert.size') : $size;
+        $this->size = $size;
+    }
+
+    public function style()
+    {
+        $alert = [
+            //defalt size - options = medium | large
+            'size' => 'medium',
+    
+            //style
+            'outline'     => 'flex items-center justify-between gap-2 px-2 py-2 border-l-4 rounded shadow-sm',
+            'content'     => 'pl-1 pr-4 font-semibold',
+            'closebutton' => 'px-2 font-bold border cursor-pointer rounded' 
+        ];
+
+        return $alert;
     }
 
     /**
@@ -74,6 +89,7 @@ class alert extends Component
      */
     public function render()
     {
-        return view('dwbtui::components.alert');
+        $css = $this->style();
+        return view('dwbtui::components.alert', compact('css'));
     }
 }

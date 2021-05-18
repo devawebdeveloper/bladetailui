@@ -24,7 +24,7 @@ class input extends Component
      *
      * @return void
      */
-    public function __construct($type="default", $size = 'small', $showicon = true)
+    public function __construct($type="default", $size = '', $showicon = true)
     { 
         $color = config('btui.formTypes.'.$type.'.color');
         $this->color = $color;

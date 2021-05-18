@@ -33,7 +33,7 @@ class select extends Component
 
         $color = config('btui.formTypes.'.$type.'.color');
 
-        $size = ($size == '') ? config('btui.select.size') : $size;
+        $size = $size;
         //out
         $this->style = Btui::theme($color)
             ->add(['w-full','min-w-min','rounded','border','outline-none','m-1'])
