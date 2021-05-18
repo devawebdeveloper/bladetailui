@@ -11,7 +11,7 @@
                 </div>
             @endforeach
         </div>
-        <div class="{{ $tstyle['content'] }}">
+        <div class="{{ ($contentClass == '') ? $tstyle['content'] : $contentClass }}">
             @foreach ($tabs as $tab)
             <div x-show.transition.in.duration.300ms.origin.top="tabs.{{ $tab }}" class="">
                 {{ ${$tab} ?? '' }}

@@ -2,7 +2,7 @@
     
     <div x-show.transition="open" 
         class=" {{ $css['outline'] }}
-         {{ btui($color)->padding($size, 'form')->bg(300)->border(500)->get() }}
+         {{ btui($color)->padding($size, 'form')->bg(200)->border(400)->get() }}
          ">
         <div class="flex items-center justify-start gap-2">
 
@@ -21,8 +21,8 @@
             @if($closable)
             <span x-on:click="open = false" 
                 class=" {{ $css['closebutton'] }}  
-                   {{ btui($color)->border(500)->text(900)->get() }}
-                   {{ btui($color)->bg(400)->hover()->get() }} -mr-1 ">&times</span>    
+                   {{ btui($color)->border(300)->text(900)->get() }}
+                   {{ btui($color)->bg(400)->text(100)->hover()->get() }}">&times</span>    
             @endif
         </div>
     </div>

@@ -2,9 +2,7 @@
     
     <div class="">
         @if($total == 0)
-            <div class="p-4 text-center text-white bg-red-600">
-                Nav Links Total Count is 0
-            </div>
+           <x-btui-alert text="No Nav links! Add some!" type="danger" :closable="true" />
         @else
                 <div class="{{ $align == 'x' ? 'flex justify-left flex-wrap gap-2' : '' }} divide-opacity-30 capitalize  {{ btui($color)->text()->get() }}">
                     

@@ -9,6 +9,7 @@ use Devaweb\BladeTailUI\View\Components\adminlayout;
 use Devaweb\BladeTailUI\View\Components\alert;
 use Devaweb\BladeTailUI\View\Components\select;
 use Devaweb\BladeTailUI\View\Components\button;
+use Devaweb\BladeTailUI\View\Components\confirm;
 use Devaweb\BladeTailUI\View\Components\dropdown;
 use Devaweb\BladeTailUI\View\Components\dropdownLink;
 use Devaweb\BladeTailUI\View\Components\hero;
@@ -26,7 +27,6 @@ use Devaweb\BladeTailUI\View\Components\smodal;
 use Devaweb\BladeTailUI\View\Components\tabs;
 use Devaweb\BladeTailUI\View\Components\toast;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class BladeTailUIServiceProvider extends ServiceProvider
@@ -38,12 +38,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
      */ 
     public function register()
     {
-        App::singleton(
-            'btui', 
-            function () {
+        App::singleton('btui', function () {
                 return new Btui();
-            }
-        );
+            });
+
+        $this->mergeConfigFrom(__DIR__.'/config/btui.php', 'btui');
     }
 
     /**
@@ -95,15 +94,17 @@ class BladeTailUIServiceProvider extends ServiceProvider
 
                 //admin layout
                 adminlayout::class,
+
+                //confirm
+                confirm::class,
             ]
         );
 
         //views
         $this->loadViewsFrom(__DIR__ . "/views", "dwbtui");
-
-        //publish config
-        $this->publishes([
-            __DIR__."/config/btui.php" => config_path('btui.php'),
-        ], 'btui');
+        
     }
+
+
+
 }

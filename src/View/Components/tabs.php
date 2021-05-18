@@ -28,6 +28,8 @@ class tabs extends Component
 
     public $type;
 
+    public $contentClass;
+
     /**
      * Construct
      *
@@ -42,11 +44,14 @@ class tabs extends Component
         $color = '',
         $align = 'start',
         $axis  = 'x',
-        $type = 'tabs'
+        $type = 'tabs',
+        $tabContentClass = ''
     ) {
         $this->tabs = ($tabs != '') ? explode(',', $tabs) : [];
         $this->count = count($this->tabs);
         $this->align = $align;
+
+        $this->contentClass = $tabContentClass;
 
         foreach ($this->tabs as $tab) {
             $this->tabshow[$tab] = false;
@@ -83,7 +88,7 @@ class tabs extends Component
         $ts['tab'] .= 'bg-'.$c.'-100 px-4 cursor-pointer ';
 
         $ts['tab-selected'] = 'bg-'.$c.'-600 text-white ';
-        $ts['tab-hover'] = 'bg-'.$c.'-200 text-black ';
+        $ts['tab-hover'] = 'bg-'.$c.'-100 text-black ';
         $ts['content'] = 'bg-white shadow border-'.$c.'-600 p-3 ';
         $ts['content'] .= ($this->axis == 'x') ? 'border-t-4 rounded-b-md w-full' : 'border-l-4 rounded-r-md w-10/12 ';
 
@@ -101,12 +106,13 @@ class tabs extends Component
         $tp['tabs'] .= "capitalize ";
         
         $tp['tab'] = 'px-4 py-1 rounded-md mb-2 ';
-        $tp['tab'] .= 'bg-'.$c.'-200 cursor-pointer ';
+        $tp['tab'] .= ' bg-'.$c.'-100 cursor-pointer ';
         $tp['tab-selected'] = 'bg-'.$c.'-600 text-white';
-        $tp['tab-hover'] = 'bg-'.$c.'-200 ';
+        $tp['tab-hover'] = ' bg-'.$c.'-100 ';
 
         $tp['content'] = 'bg-white rounded-md shadow p-3 border-'.$c.'-600 ';
         $tp['content'] .= ($this->axis == 'x') ? 'w-full border-t-2 '  : ' w-10/12 border-l-2 ';
+
         return $tp;
     }
 

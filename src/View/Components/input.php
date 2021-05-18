@@ -24,10 +24,11 @@ class input extends Component
      *
      * @return void
      */
-    public function __construct($type="default", $size = '', $showicon = true)
+    public function __construct($type="default", $size = '')
     { 
         $color = config('btui.formTypes.'.$type.'.color');
         $this->color = $color;
+
         //out
         $this->style = Btui::theme($color)
             ->add(['rounded','border','w-full','outline-none'])
@@ -36,12 +37,12 @@ class input extends Component
             ->get();
 
         //icon
-        $this->icon = $showicon ? config('btui.formTypes.'.$type.'.icon') : false;
+        $this->icon = ($type != 'default') ? config('btui.formTypes.'.$type.'.icon') : false;
 
         if ($size == 'small') {
-            $this->iconstyle = 'text-sm w-5 h-5';
+            $this->iconstyle = 'text-sm w-5 h-5 -ml-4';
         } else {
-            $this->iconstyle = 'text-sm w-6 h-6';
+            $this->iconstyle = 'text-sm w-6 h-6 -ml-6';
         } 
 
     }

@@ -15,11 +15,6 @@ To install on your laravel project
 composer require devaweb/bladetailui 
 ```
 
-publish config file
-```
-php artisan vendor:publish --tag=btui
-```
-
 
 Available components
 1. Alert
