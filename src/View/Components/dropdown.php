@@ -31,7 +31,7 @@ class dropdown extends Component
     {
         $this->text = $text;
 
-        $this->size = ($size == '') ? config('btui.dropdown.size') : $size;
+        $this->size = $size;
 
         $this->style = Btui::theme($color)
             ->add(['cursor-pointer'])

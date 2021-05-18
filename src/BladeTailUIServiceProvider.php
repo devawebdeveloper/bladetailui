@@ -104,7 +104,6 @@ class BladeTailUIServiceProvider extends ServiceProvider
         //publish config
         $this->publishes([
             __DIR__."/config/btui.php" => config_path('btui.php'),
-            __DIR__."../../css/btui.css" => resource_path('css/btui.css')
         ], 'btui');
     }
 }

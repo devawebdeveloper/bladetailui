@@ -18,7 +18,7 @@ class button extends Component
     public $basic_style = [
         "inline-block", 'capitalize', 'cursor-pointer', 
          'shadow-sm','transition-all', 'duration-300', 
-        'rounded', 'min-w-min', 'hover:shadow'];
+        'rounded', 'min-w-min'];
 
     public $size;
 
@@ -48,7 +48,7 @@ class button extends Component
     ) {
         
         $this->color = $color;
-        $this->size = ($size == '') ? config('btui.button.size') : $size;
+        $this->size = $size;
 
         $this->setStyle();
 
@@ -56,15 +56,15 @@ class button extends Component
 
     public function setStyle()
     {   
-        $this->style = config('btui.button.basic')." ";
 
         $c = Btui::theme($this->color)
-            ->padding($this->size);
+            ->padding($this->size)
+            ->add($this->basic_style);
 
         if ($this->color == 'white') {
-            $c->add(['btn-white']);
+            $c->add(['bg-white', 'hover:shadow', 'text-black']);
         } elseif ($this->color == 'black') {
-            $c->add(['btn-black']);
+            $c->add(['bg-black', 'hover:bg-gray-700', 'text-white' ]);
         } else {
             $c->add(['border'])
             ->bg()->border()
@@ -76,7 +76,6 @@ class button extends Component
         $this->style .=" ". Btui::theme($this->color, true)
             ->bg()->hover()->get();
         
-        $this->style .= ' '.config('btui.button.extra-hover-effect');
     }
 
     /**

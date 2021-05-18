@@ -127,7 +127,5 @@ return [
     //dropdown
     'dropdown' => [
         'size' => 'medium'
-    ],
-    
-    'welcome' => 'update successful'
+    ]
 ];
