@@ -15,6 +15,20 @@ To install on your laravel project
 composer require devaweb/bladetailui 
 ```
 
+<<<<<<< HEAD
+=======
+publish config file
+```
+php artisan vendor:publish --tag=btui
+```
+
+### fontawesome 4 icons are used in components
+```
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+```
+
+
+>>>>>>> a9edb0b29ebbfe2c68211e51394571d71d59fe33
 
 Available components
 1. Alert
@@ -81,24 +95,4 @@ If you want to use light color in buttons use "light" before color names
 
 <hr/>
 
-## Dropdown
-Usage
-```
-<x-btui-dropdown text="menu">
-    <x-btui-dropdown-link> Home </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Profile </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Settings </x-btui-dropdown-link>
-</x-btui-dropdown>
-```
-<br/>
-
-#### Properties
-| Name     | Type    | Default | Options |
-|:-------  |:---:   |---|---|
-| Text     | String  | "" | -  |
-
-<br>
-
-***
-
-More components are under development. It will be updated soon.
+More components on the way! Stay connected!
