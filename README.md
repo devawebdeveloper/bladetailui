@@ -15,8 +15,7 @@ To install on your laravel project
 composer require devaweb/bladetailui 
 ```
 
-<<<<<<< HEAD
-=======
+
 publish config file
 ```
 php artisan vendor:publish --tag=btui
@@ -27,8 +26,6 @@ php artisan vendor:publish --tag=btui
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 ```
 
-
->>>>>>> a9edb0b29ebbfe2c68211e51394571d71d59fe33
 
 Available components
 1. Alert
