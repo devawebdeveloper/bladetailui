@@ -16,6 +16,20 @@ composer require devaweb/bladetailui
 ```
 
 
+<<<<<<< HEAD
+=======
+publish config file
+```
+php artisan vendor:publish --tag=btui
+```
+
+### fontawesome 4 icons are used in components
+```
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+```
+
+
+>>>>>>> b4efa7d063bc44c3d3008cc2d64410adddc8bf0e
 Available components
 1. Alert
 2. Button
