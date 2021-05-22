@@ -102,6 +102,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
 
         //views
         $this->loadViewsFrom(__DIR__ . "/views", "dwbtui");
+
+        //publish
+        $this->publishes([
+            __DIR__."/config/btui.php" => config_path('btui.php')
+        ], 'btui');
         
     }
 
