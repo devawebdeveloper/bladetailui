@@ -16,9 +16,8 @@ composer require devaweb/bladetailui
 ```
 
 
-<<<<<<< HEAD
-=======
 publish config file
+
 ```
 php artisan vendor:publish --tag=btui
 ```
@@ -29,7 +28,6 @@ php artisan vendor:publish --tag=btui
 ```
 
 
->>>>>>> b4efa7d063bc44c3d3008cc2d64410adddc8bf0e
 Available components
 1. Alert
 2. Button
@@ -39,6 +37,13 @@ Available components
 6. loader
 7. Hero
 8. Navbar
+9. Nav
+10. Loader
+11. sLodader
+12. Modal
+13. sModal
+14. Confirm
+15. AdminLayout
 
 ***
 
@@ -92,26 +97,6 @@ If you want to use light color in buttons use "light" before color names
 ```
 
 <br/>
-
-<hr/>
-
-## Dropdown
-Usage
-```
-<x-btui-dropdown text="menu">
-    <x-btui-dropdown-link> Home </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Profile </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Settings </x-btui-dropdown-link>
-</x-btui-dropdown>
-```
-<br/>
-
-#### Properties
-| Name     | Type    | Default | Options |
-|:-------  |:---:   |---|---|
-| Text     | String  | "" | -  |
-
-<br>
 
 ***
 
