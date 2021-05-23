@@ -26,17 +26,14 @@ class nav extends Component
      * @return void
      */
     public function __construct(
-        $type = 'array',
         $total = 0,
-        $align = 'x',
-        $links = [],
+        $axis = 'x',
         $color = 'indigo',
         $size = 'medium'
     ) {
-        $this->type = $type;
-        $this->total = ($type == 'slot') ? $total : count($links);
-        $this->align = $align;
-        $this->links = $links;
+        
+        $this->total =  $total;
+        $this->align = $axis;
         $this->color = $color;
 
         $basic = Btui::theme($color)
@@ -50,6 +47,7 @@ class nav extends Component
 
         //dd($hover);
         $this->linkStyle = $basic . " " . $hover;
+        $this->linkStyle .= ($axis == 'y') ? ' w-full ' : ' ';
         //dd($this->linkStyle);
     }
 

@@ -4,7 +4,7 @@
         $menus = json_encode($menu);
     @endphp
     
-    <div x-data="manageMenus('{{ $menus }}')" x-init="init()" x-cloak
+    <div x-data="btuiManageSidenav('{{ $menus }}')" x-init="init()" x-cloak
         class="w-full min-h-full overflow-y-auto {{ $style['bg'] }}">
         @foreach ($menu as $m => $mv)
             <div class="">

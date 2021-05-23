@@ -1,5 +1,5 @@
 <div>
-    <div x-data="showModal()" x-on:modal.window="ocModal($event.detail)" x-cloak>
+    <div x-data="btuiManageModal()" x-on:modal.window="ocModal($event.detail)" x-cloak>
         {{-- trigger --}}
         <div x-on:click="smOpen()" class="w-full">
             {{ $trigger }}
@@ -33,29 +33,4 @@
 
 
     </div>
-    <script>
-        function showModal() {
-
-            return {
-                sm: false,
-                mname: "{{ $modalname }}",
-                smOpen() {
-                    this.sm = true;
-                },
-                smClose() {
-                    this.sm = false;
-                },
-                smToggle() {
-                    this.sm = !this.sm;
-                },
-                ocModal(ev) {
-                    //if(this.mname == ev.modalname) {
-                        this.sm = ev.oc;
-                    //}
-                    //console.log(ev);
-                }
-            }
-        }
-
-    </script>
 </div>

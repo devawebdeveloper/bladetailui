@@ -1,5 +1,5 @@
 {{-- main div ------------------ --}}
-<div x-data="MobileFirstLayout()" x-init="showHideInit()" class="fixed top-0 bottom-0 left-0 right-0 " x-cloak>
+<div x-data="btuiAdminLayout()" x-init="showHideInit()" class="fixed top-0 bottom-0 left-0 right-0 " x-cloak>
 
     {{-- side bar navigation ---------------------------------------------------------------- --}}
     <div x-show="sidenav"
@@ -72,48 +72,3 @@
         
     </div>
 </div>
-
-<script>
-    function MobileFirstLayout() {
-        return {
-            sidenav: true,
-            //sidenav css class
-            sn_class: 'fixed top-0 bottom-0 z-50 left-0 bg-white border-r shadow-lg',
-            //content css class
-            c_class: 'fixed top-0 bottom-0 z-25 right-0 transition-all duration-500',
-            //content area id
-            contentarea: document.getElementById('contentarea'),
-            //close button for sidenav
-            closeButton: true,
-            //init
-            showHideInit() {
-                var sw = screen.width;
-                this.sidenav = screen.width <= 1024 ? false : true;
-
-                
-            },
-
-            //show hide sidenav
-            showHide() {
-                this.sidenav = !this.sidenav;
-            }
-        }
-    }
-
-    //basic script
-                var navbar = document.getElementById('navbar');
-                var prevScrollpos = document.getElementById('navbar');
-
-                console.log(prevScrollpos);
-                window.onscroll = function() {
-                    var currentScrollPos = window.pageYOffset;
-                    
-                    if (prevScrollpos > currentScrollPos) {
-                        navbar.style.top = "0";
-                    } else {
-                        navbar.style.top = "-50px";
-                    }
-                    
-                    prevScrollpos = currentScrollPos;
-                }
-</script>
