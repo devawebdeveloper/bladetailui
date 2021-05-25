@@ -74,5 +74,13 @@
     @apply shadow;
 }
 
+.navlink {
+    @apply px-4;
+    @apply py-2;
+    @apply bg-gray-300;
+    @apply rounded;
+}
 
-
+.one {
+    @apply bg-green-500;
+}

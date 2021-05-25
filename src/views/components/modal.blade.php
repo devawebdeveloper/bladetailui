@@ -1,14 +1,14 @@
 <div>
-    <div x-data="showModal()" x-on:modal.window="ocModal($event.detail)" x-cloak>
+    <div x-data="{open: false}" x-cloak>
         {{-- trigger --}}
-        <div x-on:click="smOpen()" class="w-full">
+        <div @click="open = true" class="w-full">
             {{ $trigger }}
         </div>
 
-        <div x-show.transition="sm" class="fixed z-50 top-0 bottom-0 left-0 right-0 flex bg-white bg-opacity-10 {{ $align ?? "justify-center" }}">
+        <div x-show.transition="open" class="fixed z-50 top-0 bottom-0 left-0 right-0 flex bg-white bg-opacity-10 {{ $align ?? "justify-center" }}">
 
 
-            <div x-show.transition="sm" @click.away="smClose()"
+            <div x-show.transition="open"
                 class="grid grid-cols-1 w-full bg-white border-gray-200 shadow-lg md:w-{{ $width }}/12 overflow-y-auto ">
     
                 <div class="w-full ">
@@ -17,7 +17,7 @@
                             {{ $title }}
                         </div>
                         <div class="">
-                            <button x-on:click="smClose()" class="px-1 py-1 text-3xl text-gray-800 transition-all hover:text-4xl hover:text-red-500">&times;</button>
+                            <button @click="open = false" class="px-1 py-1 text-3xl text-gray-800 transition-all hover:text-4xl hover:text-red-500">&times;</button>
                         </div>
 
                     </div>
@@ -33,29 +33,4 @@
 
 
     </div>
-    <script>
-        function showModal() {
-
-            return {
-                sm: false,
-                mname: "{{ $modalname }}",
-                smOpen() {
-                    this.sm = true;
-                },
-                smClose() {
-                    this.sm = false;
-                },
-                smToggle() {
-                    this.sm = !this.sm;
-                },
-                ocModal(ev) {
-                    //if(this.mname == ev.modalname) {
-                        this.sm = ev.oc;
-                    //}
-                    //console.log(ev);
-                }
-            }
-        }
-
-    </script>
 </div>
