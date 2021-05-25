@@ -13,20 +13,22 @@ return [
     'theme' => 'gray',
 
     //default size for button , alert, form elements
-    'size'  => 'small',
+    'size'  => 'medium',
 
     //padding ---------------
     'padding'    => [
-        'small'  => 'px-4 py-1 text-sm',
-        'medium' => 'px-6 py-2',
-        'large'  => 'px-8 py-3 text-lg'
+        'small'  => 'px-2 py-1 text-sm',
+        'medium' => 'px-5 py-1',
+        'large'  => 'px-9 py-2 text-lg',
+        'xlarge' => 'px-12 py-3 text-xl',
     ],
 
     //used in input,select
     'formPadding' => [
         'small'   => 'px-2 py-1 text-sm',
         'medium'  => 'px-3 py-2',
-        'large'   => 'px-4 py-3 text-lg'
+        'large'   => 'px-4 py-3 text-lg',
+        'xlarge'  => 'px-6 py-4 text-lg'  
     ],
 
     //color varient -------------------

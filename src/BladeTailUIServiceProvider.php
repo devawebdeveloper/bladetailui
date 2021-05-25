@@ -107,6 +107,16 @@ class BladeTailUIServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__."/config/btui.php" => config_path('btui.php')
         ], 'btui');
+<<<<<<< Updated upstream
+=======
+
+        //republish
+        $this->publishes([
+            __DIR__."./../assets/btui.css" => public_path('css/btui.css'),
+            __DIR__."./../assets/btui.js" => public_path('js/btui.js'),
+        ], 'btui-update');
+
+>>>>>>> Stashed changes
         
     }
 

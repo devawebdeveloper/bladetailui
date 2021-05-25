@@ -1,11 +1,11 @@
 <div>
-    <div class="flex items-center justify-start m-1 min-w-min">
-        <div class="w-full">
-            <input type="text" {{ $attributes->merge(['class' => $style]) }} class="">
-        </div>
+
+    <div class="flex items-center justify-between p-1 {{ $type == 'default' ? "bg-transparent" : 'bg-'.$color.'-300'  }} rounded">       
+        <div class="w-full ">
+            <input type="text" {{ $attributes->merge(['class' => $style]) }}>    
+        </div>    
         @if($icon != false)
-        <div class="{{ btui($color)->bg(100)->text(700)->border(200)->get() }} 
-            {{ $iconstyle }} rounded-full border flex justify-center items-center z-20">
+        <div class="px-2 text-{{ $color }}-700">
             <i class="{{ $icon }}"></i>
         </div>
         @endif

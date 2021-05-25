@@ -1,17 +1,15 @@
 <div class="m-1" x-data="{open:true}" x-on:btuialert.window="">
     
     <div x-show.transition="open" 
-        class=" {{ $css['outline'] }}
-         {{ btui($color)->padding($size, 'form')->bg(200)->border(400)->get() }}
-         ">
+        class=" {{ $css['outline'] }} {{ btui($color)->bg(200)->border(300)->get() }}">
         <div class="flex items-center justify-start gap-2">
 
-            <span class="{{ btui($color)->text(900)->get() }} text-opacity-75 ">
+            <span class="text-opacity-75 text-{{ $color }}-900 ">
                 <i class="{{ $icon }}"></i>
             </span>
 
-            <div class="{{ $css['content'] }}">
-                <p class="{{ btui($color)->text(900)->get() }}">
+            <div class="{{ $css['content'] }} ">
+                <p class="text-{{ $color }}-900">
                 {{ $text }}</p>
             </div>
 

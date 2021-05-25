@@ -24,9 +24,9 @@
         @endif
     </div>
     
-    <div x-show.transition="open"
-        class="absolute z-50 origin-top-{{ $align }} {{ $align }}-0 ">
-        <div class="py-1 bg-white border rounded-md shadow-lg min-w-max">
+    <div x-show.transition.origin.top="open"
+        class="absolute z-50 origin-top-{{ $align }} {{ $align }}-0 w-full min-w-min ">
+        <div class="w-full py-1 bg-white border rounded-md shadow-lg ">
             {{ $slot }}
         </div>
     </div>

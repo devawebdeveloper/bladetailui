@@ -74,10 +74,12 @@ class alert extends Component
             'size' => 'medium',
     
             //style
-            'outline'     => 'flex items-center justify-between gap-2 px-2 py-2 border-l-4 rounded shadow-sm',
-            'content'     => 'pl-1 pr-4 font-semibold',
+            'outline'     => 'flex items-center justify-between px-2 gap-2 border-l-4 border rounded shadow-sm',
+            'content'     => 'pl-1 pr-4 py-2 font-semibold',
             'closebutton' => 'px-2 font-bold border cursor-pointer rounded' 
         ];
+
+        
 
         return $alert;
     }

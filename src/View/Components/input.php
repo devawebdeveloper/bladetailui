@@ -19,6 +19,8 @@ class input extends Component
 
     public $iconstyle;
 
+    public $type;
+
     /**
      * Create a new component instance.
      *
@@ -26,24 +28,19 @@ class input extends Component
      */
     public function __construct($type="default", $size = '')
     { 
+        $this->type = $type;
         $color = config('btui.formTypes.'.$type.'.color');
         $this->color = $color;
 
         //out
         $this->style = Btui::theme($color)
-            ->add(['rounded','border','w-full','outline-none'])
+            ->add([' w-full border-0 rounded border-b m-0 '])
             ->padding($size, 'form')
-            ->border(300)
+            ->border(200)
             ->get();
 
         //icon
         $this->icon = ($type != 'default') ? config('btui.formTypes.'.$type.'.icon') : false;
-
-        if ($size == 'small') {
-            $this->iconstyle = 'text-sm w-5 h-5 -ml-4';
-        } else {
-            $this->iconstyle = 'text-sm w-6 h-6 -ml-6';
-        } 
 
     }
 
