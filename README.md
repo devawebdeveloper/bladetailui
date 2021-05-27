@@ -15,8 +15,20 @@ To install on your laravel project
 composer require devaweb/bladetailui 
 ```
 
+#### Publish the assets
+```
+php artisan vendor:publish --tag=btui
+```
 
-Available components
+
+### When update the package republish the assets with this btui-update tag
+```
+php artisan vendor:publish --tag=btui-update --force
+```
+
+
+### Available components
+
 1. Alert
 2. Button
 3. Dropdown
@@ -25,6 +37,11 @@ Available components
 6. loader
 7. Hero
 8. Navbar
+9. Modal
+10. Smodal
+11. Sloader
+12. Toast
+13. Admin Layout
 
 ***
 
@@ -57,15 +74,14 @@ Available components
 #### Properties
 | Name     | Type    | Default | Options |
 |-------   |---      |---|---|
-| Element     | String  | Button | button,a |
 | Color     | String  | white | White,Gray,Blue,Red,Green,Yellow,Purple,Pink,Indigo |
-| Size | String | Small | Small,Medium,Large  |
+| Size | String | Small | sm,md,lg,xl  |
 
 <br>
 
 If you want to use light color in buttons use "light" before color names 
 
-**Ex: lightgray**
+**Ex: light-gray**
 
 #### Dark Red Button
 ```
@@ -74,30 +90,11 @@ If you want to use light color in buttons use "light" before color names
 
 #### Light Red Button
 ```
-<x-btui-button color="lightred"> Click It! </x-btui-button>
+<x-btui-button color="light-red"> Click It! </x-btui-button>
 ```
 
 <br/>
 
-<hr/>
-
-## Dropdown
-Usage
-```
-<x-btui-dropdown text="menu">
-    <x-btui-dropdown-link> Home </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Profile </x-btui-dropdown-link>
-    <x-btui-dropdown-link> Settings </x-btui-dropdown-link>
-</x-btui-dropdown>
-```
-<br/>
-
-#### Properties
-| Name     | Type    | Default | Options |
-|:-------  |:---:   |---|---|
-| Text     | String  | "" | -  |
-
-<br>
 
 ***
 
