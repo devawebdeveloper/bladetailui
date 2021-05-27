@@ -6,7 +6,7 @@ use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiMenu;
 use Illuminate\View\Component;
 
-class dropdown extends Component
+class Dropdown extends Component
 {
     use btuiMenu;
 

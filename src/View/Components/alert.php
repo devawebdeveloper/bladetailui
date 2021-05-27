@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class alert extends Component
+class Alert extends Component
 {
 
     public $text;
@@ -45,6 +45,8 @@ class alert extends Component
 
     public $size;
 
+    public $type;
+
     /**
      * Create a new component instance.
      * 
@@ -58,13 +60,28 @@ class alert extends Component
         $text = "",
         $type = 'default',
         $closable = false,
-        $size = ''
+        $size = 'medium'
     ) {
         $this->text = $text;
         $this->color = config('btui.formTypes.'.$type.'.color');
         $this->closable = $closable;    
         $this->icon = config('btui.formTypes.'.$type.'.icon');
-        $this->size = $size;
+        //$this->size = $size;
+
+        $sm['small'] = 'alert-sm';
+        $sm['medium'] = 'alert-md';
+        $sm['large'] = 'alert-lg';
+
+        $smt = [
+            'default' => 'alert-default',
+            'success' => 'alert-success',
+            'warning' => 'alert-warning',
+            'danger' => 'alert-danger',
+            'info' => 'alert-info'
+        ];
+
+        $this->size = $sm[$size];
+        $this->type = $smt[$type];
     }
 
     public function style()
@@ -91,7 +108,6 @@ class alert extends Component
      */
     public function render()
     {
-        $css = $this->style();
-        return view('dwbtui::components.alert', compact('css'));
+        return view('dwbtui::components.alert');
     }
 }

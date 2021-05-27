@@ -5,7 +5,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 use App\View\Components\th;
 use Illuminate\View\Component;
 
-class navbar extends Component
+class Navbar extends Component
 {
     //Site Title
     public String $sitename;

@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class modal extends Component
+class Modal extends Component
 {
 
     public $title;

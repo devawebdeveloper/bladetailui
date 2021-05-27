@@ -5,28 +5,31 @@ namespace Devaweb\BladeTailUI;
 require_once __DIR__."/Helpers/helpers.php";
 
 use Devaweb\BladeTailUI\Classes\Btui;
-use Devaweb\BladeTailUI\View\Components\adminlayout;
-use Devaweb\BladeTailUI\View\Components\alert;
-use Devaweb\BladeTailUI\View\Components\select;
-use Devaweb\BladeTailUI\View\Components\button;
-use Devaweb\BladeTailUI\View\Components\confirm;
-use Devaweb\BladeTailUI\View\Components\dropdown;
-use Devaweb\BladeTailUI\View\Components\dropdownLink;
-use Devaweb\BladeTailUI\View\Components\hero;
-use Devaweb\BladeTailUI\View\Components\input;
-use Devaweb\BladeTailUI\View\Components\loader;
-use Devaweb\BladeTailUI\View\Components\modal;
-use Devaweb\BladeTailUI\View\Components\nav;
-use Devaweb\BladeTailUI\View\Components\navbar;
-use Devaweb\BladeTailUI\View\Components\navbarMenu;
-use Devaweb\BladeTailUI\View\Components\navbarMenuLink;
-use Devaweb\BladeTailUI\View\Components\navbarTitle;
-use Devaweb\BladeTailUI\View\Components\sidenav;
-use Devaweb\BladeTailUI\View\Components\sloader;
-use Devaweb\BladeTailUI\View\Components\smodal;
-use Devaweb\BladeTailUI\View\Components\tabs;
-use Devaweb\BladeTailUI\View\Components\toast;
+use Devaweb\BladeTailUI\View\Components\Adminlayout;
+use Devaweb\BladeTailUI\View\Components\Alert;
+use Devaweb\BladeTailUI\View\Components\{ 
+    Button, 
+    Confirm, 
+    Dropdown, 
+    DropdownLink,
+    Hero,
+    Input,
+    Loader,
+    Modal,
+    Nav,
+    Navbar,
+    NavbarMenu,
+    NavbarMenuLink,
+    NavbarTitle,
+    Select,
+    Sidenav,
+    Sloader,
+    Tabs,
+    Toast,
+    Smodal
+};
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class BladeTailUIServiceProvider extends ServiceProvider
@@ -51,72 +54,63 @@ class BladeTailUIServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        //blde components
-        $this->loadViewComponentsAs(
-            'btui', 
-            [
-                //navbar
-                navbar::class,
-                navbarMenu::class,
-                navbarTitle::class,
-                navbarMenuLink::class,
-                //hero
-                hero::class,
-                //alert
-                alert::class,
-                //button
-                button::class,
-                //dropdown
-                dropdown::class,
-                dropdownLink::class,
-                //input
-                input::class,
-                //select
-                select::class,
-                //loader
-                loader::class,
-                sloader::class,
+    {   
+        $prefix = 'btui';
 
-                //modals
-                modal::class,
-                smodal::class,
+        //layouts
+        Blade::component('admin-layout', Adminlayout::class, $prefix);
+        Blade::component('hero', Hero::class, $prefix);
 
-                //toast
-                toast::class,
+        //form
+        Blade::component('alert', Alert::class, $prefix);
+        Blade::component('button', Button::class, $prefix);
+        Blade::component('dropdown', Dropdown::class, $prefix);
+        Blade::component('dropdown-link', DropdownLink::class, $prefix);
+        Blade::component('input', Input::class, $prefix);
+        Blade::component('select', Select::class, $prefix);
+       
+        //nav
+        Blade::component('sidenav', Sidenav::class, $prefix);
+        Blade::component('nav', Nav::class, $prefix);
+        Blade::component('navbar', Navbar::class, $prefix);
+        Blade::component('navbar-menu', NavbarMenu::class, $prefix);
+        Blade::component('navbar-menu-link', NavbarMenuLink::class, $prefix);
+        Blade::component('navbar-title', NavbarTitle::class, $prefix);
 
-                //tabs
-                tabs::class,
+        //modals
+        Blade::component('modal', Modal::class, $prefix);
+        Blade::component('smodal', Smodal::class, $prefix);
+        
+        //notifications
+        Blade::component('toast', Toast::class, $prefix);
+        Blade::component('confirm', Confirm::class, $prefix);
 
-                //sidenav
-                sidenav::class,
-                nav::class,
+        //basic
+        Blade::component('table', Table::class, $prefix);
+        Blade::component('tabs', Tabs::class, $prefix);
+        Blade::component('td', Td::class, $prefix);
+        Blade::component('th', Th::class, $prefix);
 
-                //admin layout
-                adminlayout::class,
-
-                //confirm
-                confirm::class,
-            ]
-        );
+        //loaders
+        Blade::component('sloader', Sloader::class, $prefix);
+        Blade::component('loader', Loader::class, $prefix);
 
         //views
         $this->loadViewsFrom(__DIR__ . "/views", "dwbtui");
 
         //publish
         $this->publishes([
-            __DIR__."/config/btui.php" => config_path('btui.php')
+            __DIR__."/config/btui.php" => config_path('btui.php'),
+            __DIR__."./../assets/btui_v2.0.3.css" => public_path('css/btui.css')
         ], 'btui');
-<<<<<<< Updated upstream
-=======
 
-        //republish
         $this->publishes([
-            __DIR__."./../assets/btui.css" => public_path('css/btui.css'),
-            __DIR__."./../assets/btui.js" => public_path('js/btui.js'),
+            __DIR__."./../assets/btui_v2.0.3.css" => public_path('css/btui.css')
         ], 'btui-update');
 
->>>>>>> Stashed changes
+        Blade::directive('btuiStyles', function () {
+            return "<?php echo asset('css/btui.css'); ?>";
+        });
         
     }
 

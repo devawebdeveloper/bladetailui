@@ -5,7 +5,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
-class navbarMenuLink extends Component
+class NavbarMenuLink extends Component
 {
 
     use btuiBasic;

@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class sloader extends Component
+class Sloader extends Component
 {
     /**
      * Create a new component instance.

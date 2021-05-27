@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class toast extends Component
+class Toast extends Component
 {   
 
     

@@ -6,7 +6,7 @@ use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
-class input extends Component
+class Input extends Component
 {
 
     use btuiBasic;
@@ -21,24 +21,27 @@ class input extends Component
 
     public $type;
 
+    public $size;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type="default", $size = '')
+    public function __construct($type="default", $size = 'md')
     { 
         $this->type = $type;
         $color = config('btui.formTypes.'.$type.'.color');
         $this->color = $color;
+        $this->size = $size;
 
-        //out
+        /**
         $this->style = Btui::theme($color)
             ->add([' w-full border-0 rounded border-b m-0 '])
             ->padding($size, 'form')
             ->border(200)
             ->get();
-
+        */
         //icon
         $this->icon = ($type != 'default') ? config('btui.formTypes.'.$type.'.icon') : false;
 

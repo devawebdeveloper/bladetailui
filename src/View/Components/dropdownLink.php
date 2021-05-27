@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class dropdownLink extends Component
+class DropdownLink extends Component
 {
     /**
      * Create a new component instance.

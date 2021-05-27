@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class navbarTitle extends Component
+class NavbarTitle extends Component
 {
     /**
      * Create a new component instance.

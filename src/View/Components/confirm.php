@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class confirm extends Component
+class Confirm extends Component
 {
     public $text;
  

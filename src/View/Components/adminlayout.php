@@ -5,7 +5,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 use Devaweb\BladeTailUI\Facades\Btui;
 use Illuminate\View\Component;
 
-class adminlayout extends Component
+class Adminlayout extends Component
 {
     public $sitetitle;
 
@@ -22,7 +22,7 @@ class adminlayout extends Component
      */
     public function __construct(
         $sitetitle = '',
-        $color = 'white',
+        $color = 'gray',
         $headercolor = ''
     ) {
 

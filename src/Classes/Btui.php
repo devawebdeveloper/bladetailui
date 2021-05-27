@@ -2,10 +2,13 @@
 
 namespace Devaweb\BladeTailUI\Classes;
 
+use Devaweb\BladeTailUI\Traits\btuiColors;
 use Illuminate\Support\Arr;
 
 class Btui
 {
+    use btuiColors;
+
     public $theme;
 
     public $secondaryTheme;
@@ -92,6 +95,11 @@ class Btui
         $this->hoverType = ($this->themeType == 'dark') ? 'light' : 'dark';
         //dd($this->theme, $this->themeType, $this->hover, $this->hoverType);
 
+    }
+
+    public function colors($name)
+    {
+        return $this->bcolors($name);
     }
 
     /**

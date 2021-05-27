@@ -1,48 +1,45 @@
 <div class="w-full">
-    @if($count == 0)
-        <x-btui-alert text="No tabs! Add some!" type="warning" closable="true" />
-    @else
-    <div x-data="manageTabs()" x-init="init()" x-cloak class="{{ $tstyle['bg'] }} my-4">
-        <div class=" {{ $tstyle['tabs'] }}">
+    @if($count > 0)
+    <div x-data="btuiManageTabs('{{ json_encode($tabshow) }}')" x-init="init()" x-cloak class="tabs-wrap-{{ $axis }}">
+        <div class="tabs-{{ $axis }}{{ $axis == 'x' ? '-'.$align : '' }}">
             @foreach ($tabs as $tab )
-                <div @click="selectTab('{{ $tab }}')" class=" {{ $tstyle['tab'] }} "
-                    :class="(tabs['{{ $tab }}'] == true) ? ' {{ $tstyle['tab-selected'] }} ' : ' border-transparent {{ $tstyle['tab-hover'] }} ' ">
-                    {{ $tab }}
-                </div>
+            <div @click="selectTab('{{ $tab }}')" class="tab-{{ $axis }} tab-md " :class="(tabs['{{ $tab }}'] == true) ? ' tab-{{ $theme }}-active ' : 'tab-{{ $theme }}' ">
+                {{ $tab }}
+            </div>
             @endforeach
         </div>
-        <div class="{{ ($contentClass == '') ? $tstyle['content'] : $contentClass }}">
+        <div class="{{ ($contentClass == '') ? 'tab-content-'.$axis.' tab-content-'.$theme : $contentClass }}">
             @foreach ($tabs as $tab)
-            <div x-show.transition.in.duration.300ms.origin.top="tabs.{{ $tab }}" class="">
+            <div x-show.transition.in.duration.300ms.opacity.50="tabs.{{ $tab }}" class="">
                 {{ ${$tab} ?? '' }}
             </div>
             @endforeach
         </div>
     </div>
     @endif
-    
-    
-    
+
 </div>
 <script>
-    function manageTabs() {
+    var btuiManageTabs = (tabsfromphp) => {
+
         return {
-            tabs: '<?php echo json_encode($tabshow) ?>',
+
+            tabs: tabsfromphp,
+
             tabshow: [],
+
             init() {
                 this.tabs = JSON.parse(this.tabs);
-                var gettab = new URLSearchParams(window.location.search);
-                if (gettab.has('tab')) {
-                    this.selectTab( gettab.get('tab'));
-                }
-                
             },
+
             selectTab(tab) {
-                Object.keys(this.tabs).forEach( el => {
+                Object.keys(this.tabs).forEach(el => {
                     this.tabs[el] = (tab == el) ? true : false;
                 });
-                window.history.pushState('','','?tab='+tab);
             }
+
         }
+
     }
+
 </script>

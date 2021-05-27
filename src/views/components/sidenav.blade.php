@@ -5,19 +5,23 @@
     @endphp
     
     <div x-data="manageMenus('{{ $menus }}')" x-init="init()" x-cloak
-        class="w-full min-h-full overflow-y-auto {{ $style['bg'] }}">
+        class="w-full min-h-full overflow-y-auto divide-y sidenav-{{ $color }}">
         @foreach ($menu as $m => $mv)
             <div class="">
+
                @if($mv['count'] == 1 || $mv['count'] == null)
+               
                <div @click="localStorage.removeItem('sidenav-menu')"
-                    class="">
+                    class="sidnav-links">
                     {{ ${$m} ?? '' }}
-               </div>
+                </div>
+
                @else
                 <div 
                     class="relative capitalize transition-all duration-300 cursor-pointer">
+                    
                     <div @click="openMenu('{{ $m }}')" 
-                        class="px-4 py-2 shadow {{ $style['maintext'] }}">
+                        class="px-4 py-2 sidenav-section">
                         {{ $m }}
 
                         <div class="absolute px-2 right-2 top-2">
@@ -39,7 +43,7 @@
 
                     <div x-show="menu.{{ $m }}.open">
                         @for($i = 1; $i <= $mv['count']; $i++)
-                            <div class="">
+                            <div class="sidenav-links">
                                 {{ ${$m.$i} ?? '' }}
                             </div>
                         @endfor

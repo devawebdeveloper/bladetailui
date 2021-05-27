@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class loader extends Component
+class Loader extends Component
 {
     public $loading;
 

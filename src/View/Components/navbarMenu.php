@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class navbarMenu extends Component
+class NavbarMenu extends Component
 {
 
 

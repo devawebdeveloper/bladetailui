@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class smodal extends Component
+class Smodal extends Component
 {   
 
     public $title;

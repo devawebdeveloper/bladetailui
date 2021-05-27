@@ -4,7 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Illuminate\View\Component;
 
-class hero extends Component
+class Hero extends Component
 {
     //col width
     public $width;

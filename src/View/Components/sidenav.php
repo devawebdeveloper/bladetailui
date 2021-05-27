@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Component;
 use phpDocumentor\Reflection\Types\This;
 
-class sidenav extends Component
+class Sidenav extends Component
 {
 
     use btuiMenu;

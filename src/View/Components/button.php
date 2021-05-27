@@ -4,19 +4,19 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
-use Illuminate\Support\Facades\Cache;
+use Devaweb\BladeTailUI\Traits\btuiColors;
 use Illuminate\View\Component;
 
-use function PHPUnit\Framework\isEmpty;
 
-class button extends Component
+class Button extends Component
 {
     use btuiBasic;
+    use btuiColors;
 
     public $color;
 
     public $basic_style = [
-        "inline-block", 'capitalize', 'cursor-pointer', 
+        "block", 'capitalize', 'cursor-pointer', 
          'shadow-sm','transition-all', 'duration-300', 
         'rounded', 'min-w-min'];
 
@@ -43,14 +43,14 @@ class button extends Component
      * @return void
      */
     public function __construct(
-        $color = "",
-        $size = ""
+        $color = "gray",
+        $size = "md"
     ) {
         
         $this->color = $color;
         $this->size = $size;
 
-        $this->setStyle();
+        //$this->setStyle();
 
     }
 
@@ -67,8 +67,7 @@ class button extends Component
             $c->add(['bg-black', 'hover:bg-gray-700', 'text-white' ]);
         } else {
             $c->add(['border'])
-            ->bg()->border()
-            ->text();
+            ->bg()->border();
         }
     
         $this->style .= $c->get()." ";
@@ -78,6 +77,16 @@ class button extends Component
         
     }
 
+    public function newStyle()
+    {
+        $basic = " cursor-pointer transition-all duration-300 capitalize rounded shadow-sm ";
+        $size = config('btui.padding.'.$this->size);
+        $bg = @implode(' ', $this->cs[$this->color]['dark']);
+        $bgh = 'hover:'.$this->cs[$this->color]['dark-hover']['bg'];
+        
+        return $basic.' '.$bg.' '.$bgh.' '.$size;
+    }
+
     /**
      * Get the view / contents that represent the component.
      *
@@ -85,6 +94,10 @@ class button extends Component
      */
     public function render()
     {
+
+        //$ns = $this->newStyle();
+        //dd($ns);
+
         return view('dwbtui::components.button');
     }
 }

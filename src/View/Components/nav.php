@@ -5,7 +5,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 use Devaweb\BladeTailUI\Facades\Btui;
 use Illuminate\View\Component;
 
-class nav extends Component
+class Nav extends Component
 {
 
     public $type;
@@ -20,37 +20,29 @@ class nav extends Component
 
     public $color;
 
+    public $size;
+
+    public $class;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
-        $type = 'array',
         $total = 0,
-        $align = 'x',
-        $links = [],
-        $color = 'indigo',
-        $size = 'medium'
+        $axis = 'x',
+        $color = 'blue',
+        $size = 'md',
+        $class = ''
     ) {
-        $this->type = $type;
-        $this->total = ($type == 'slot') ? $total : count($links);
-        $this->align = $align;
-        $this->links = $links;
+        
+        $this->total =  $total;
+        $this->align = $axis;
         $this->color = $color;
+        $this->size = $size;
+        $this->class = $class;
 
-        $basic = Btui::theme($color)
-            ->add(['block','rounded-lg'])
-            ->padding($size)
-            ->text(900)
-            ->get(); 
-
-        $hover = Btui::theme($color)
-            ->bg(200)->text(900)->hover()->get();
-
-        //dd($hover);
-        $this->linkStyle = $basic . " " . $hover;
-        //dd($this->linkStyle);
     }
 
     /**

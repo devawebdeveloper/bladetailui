@@ -1,11 +1,11 @@
 <div>
 
-    <div class="flex items-center justify-between p-1 {{ $type == 'default' ? "bg-transparent" : 'bg-'.$color.'-300'  }} rounded">       
-        <div class="w-full ">
-            <input type="text" {{ $attributes->merge(['class' => $style]) }}>    
+    <div class="input-wrap input-wrap-{{ $type }}">       
+        <div class="w-full">
+            <input type="text" {{ $attributes->merge(['class' => 'input input-'.$size ]) }}>    
         </div>    
         @if($icon != false)
-        <div class="px-2 text-{{ $color }}-700">
+        <div class="input-icon input-{{ $size }}">
             <i class="{{ $icon }}"></i>
         </div>
         @endif

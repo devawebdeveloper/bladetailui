@@ -2,12 +2,10 @@
 
 namespace Devaweb\BladeTailUI\View\Components;
 
-use App\View\Components\th;
-use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
-class tabs extends Component
+class Tabs extends Component
 {
 
     use btuiBasic;
@@ -41,10 +39,9 @@ class tabs extends Component
     public function __construct(
         $tabs = '',
         $selected = '',
-        $color = '',
+        $color = 'gray',
         $align = 'start',
         $axis  = 'x',
-        $type = 'tabs',
         $tabContentClass = ''
     ) {
         $this->tabs = ($tabs != '') ? explode(',', $tabs) : [];
@@ -64,7 +61,6 @@ class tabs extends Component
         
         
         $this->theme = $color == '' ? $this->theme : $color ;
-        $this->type = $type;
         $this->axis = $axis;
         
     }
@@ -123,7 +119,6 @@ class tabs extends Component
      */
     public function render()
     {
-        $tstyle = ($this->type == 'tabs') ? $this->tabStyle() : $this->pillStyle();
-        return view('dwbtui::components.tabs', compact('tstyle'));
+        return view('dwbtui::components.tabs');
     }
 }
