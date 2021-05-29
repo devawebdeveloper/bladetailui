@@ -45,6 +45,9 @@ php artisan vendor:publish --tag=btui-update --force
 
 ***
 
+## [Full Documentation is Here!](https://bladetailui.com)
+
+***
 **Usage**
 
 ## Alert
