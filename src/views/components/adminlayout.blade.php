@@ -12,15 +12,19 @@
     
     class="fixed top-0 bottom-0 left-0 z-50 w-10/12 overflow-y-auto shadow al-sidebar-{{ $color }} sm:w-6/12 md:w-4/12 lg:w-1/5 xl:2/12">
         
-        <div class="flex justify-end border-b border-{{ $color }}-800 lg:hidden">
-            <div  x-on:click="sidenav = false"
-                class="px-3 py-1  text-2xl text-black cursor-pointer {{ $style['closebutton'] }} lg:hidden">
-            &times;</div>
-        </div>
+        
         
         <div class="">
             {{ $sidenav ?? '' }}
         </div>
+
+       
+        <div  x-on:click="sidenav = false"
+              class="absolute z-50 px-2 text-4xl text-black bg-white bg-opacity-50 rounded-full shadow-md cursor-pointer right-2 bottom-2 lg:hidden">
+            &times;
+        </div>
+       
+        
     </div>
 
     {{-- content area ------------------------------------------------------------------------- --}}
@@ -57,8 +61,8 @@
         </div>
 
         {{-- header bottom --}}
-        <div class="w-full {{ $headerbottom ?? btui($color)->add(['border-t','border-b'])->bg()->border()->get() }}">
-            <div class="container mx-auto">
+        <div class="w-full">
+            <div class="">
                 {{ $headerbottom ?? '' }}
             </div>
         </div>
@@ -100,3 +104,12 @@
     }
 }
 </script>
+
+{{-- Version History
+    
+    V 2.0.4 ---------------------------------------
+
+    1. Mobile - close button redesigned.
+    2. Old Btui class based coloring removed.
+    
+    --}}

@@ -101,15 +101,17 @@ class BladeTailUIServiceProvider extends ServiceProvider
         //publish
         $this->publishes([
             __DIR__."/config/btui.php" => config_path('btui.php'),
-            __DIR__."./../assets/btui_v2.0.3.css" => public_path('css/btui.css')
+            __DIR__."./../assets/btui_v2.0.4.css" => public_path('css/btui.css')
         ], 'btui');
 
         $this->publishes([
-            __DIR__."./../assets/btui_v2.0.3.css" => public_path('css/btui.css')
+            __DIR__."./../assets/btui_v2.0.4.css" => public_path('css/btui.css')
         ], 'btui-update');
 
         Blade::directive('btuiStyles', function () {
-            return "<?php echo asset('css/btui.css'); ?>";
+            return <<< EOT
+                <link rel='stylesheet' href='/css/btui.css' />
+                EOT;
         });
         
     }

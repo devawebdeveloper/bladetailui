@@ -15,7 +15,7 @@ class Smodal extends Component
      *
      * @return void
      */
-    public function __construct($title = "SModal")
+    public function __construct($title = "")
     {
         $this->title = $title;
     }

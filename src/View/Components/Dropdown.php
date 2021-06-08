@@ -27,16 +27,11 @@ class Dropdown extends Component
      *
      * @return void
      */
-    public function __construct($text = "Click", $color = 'white', $size = '', $align = 'left', $icon = false)
+    public function __construct($text = "Click", $size = '', $align = 'left', $icon = false)
     {
         $this->text = $text;
 
-        $this->size = $size;
-
-        $this->style = Btui::theme($color)
-            ->add(['cursor-pointer'])
-            ->padding($this->size, 'form')
-            ->get();
+        $this->size = $size == '' ? config('btui.size') : $size ;
 
         $this->align = $align;
         $this->icon = $icon;

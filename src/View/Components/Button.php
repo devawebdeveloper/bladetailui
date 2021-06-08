@@ -43,12 +43,12 @@ class Button extends Component
      * @return void
      */
     public function __construct(
-        $color = "gray",
-        $size = "md"
+        $color = "",
+        $size = ""
     ) {
         
-        $this->color = $color;
-        $this->size = $size;
+        $this->color = $color == '' ? config('btui.theme') : $color;
+        $this->size = $size == '' ? config('btui.size') : $size;
 
         //$this->setStyle();
 

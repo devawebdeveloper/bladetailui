@@ -12,8 +12,8 @@
                @if($mv['count'] == 1 || $mv['count'] == null)
                
                <div @click="localStorage.removeItem('sidenav-menu')"
-                    class="sidnav-links">
-                    {{ ${$m} ?? '' }}
+                    class="sidenav-links">
+                    {{ ${$m} ?? '' }} {{ ${$m.'1'} ?? '' }}
                 </div>
 
                @else
@@ -45,6 +45,7 @@
                         @for($i = 1; $i <= $mv['count']; $i++)
                             <div class="sidenav-links">
                                 {{ ${$m.$i} ?? '' }}
+
                             </div>
                         @endfor
                     </div>

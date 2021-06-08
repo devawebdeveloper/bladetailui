@@ -22,22 +22,26 @@ class Adminlayout extends Component
      */
     public function __construct(
         $sitetitle = '',
-        $color = 'gray',
+        $color = '',
         $headercolor = ''
     ) {
 
         $this->sitetitle = $sitetitle;
-        $this->color = $color;
+        $this->color = $color == '' ? config('btui.theme') : $color;
 
-        $this->style['bg'] = Btui::theme($color)->bg()
-            ->add(['border-t-4'])->border(700)->text()->get();
         
-        $headercolor = ($headercolor == '') ? $color : $headercolor;    
+        
+        $headercolor = ($headercolor == '') ? $color : $headercolor;  
+        
+        /**
+         * $this->style['bg'] = Btui::theme($color)->bg()
+            ->add(['border-t-4'])->border(700)->text()->get();
         $this->style['hbg'] = Btui::theme($headercolor)
             ->gradient('r')
             ->border(700)->text()->get();
         
         $this->style['closebutton'] = Btui::theme($color)->bg()->text()->get();
+         */
         
     }
 

@@ -32,7 +32,7 @@ class Modal extends Component
      */
     public function __construct(
         $modalname = "m",
-        $title = "Modal", 
+        $title = "", 
         $width = "5", 
         $align = "center"
     ) {

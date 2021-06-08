@@ -32,15 +32,15 @@ class Nav extends Component
     public function __construct(
         $total = 0,
         $axis = 'x',
-        $color = 'blue',
-        $size = 'md',
+        $color = '',
+        $size = '',
         $class = ''
     ) {
         
         $this->total =  $total;
         $this->align = $axis;
-        $this->color = $color;
-        $this->size = $size;
+        $this->color = $color == '' ? config('btui.theme') : $color;
+        $this->size = $size == '' ? config('btui.size') : $size;
         $this->class = $class;
 
     }

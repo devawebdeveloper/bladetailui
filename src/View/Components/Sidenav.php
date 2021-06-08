@@ -33,7 +33,7 @@ class Sidenav extends Component
      */
     public function __construct(
         $sections = 'main:1',
-        $color = 'light-green'
+        $color = ''
     ) {
 
 
@@ -48,14 +48,8 @@ class Sidenav extends Component
         }
 
 
-        $this->color = $color;
-        $this->getStyle();
-        $this->linkStyle = Btui::theme($color)->add(['block', 'px-4', 'py-2'])->get()
-            . " " . $this->style['linktext'];
-        $this->active = Btui::theme($color)->add(['block', 'px-4', 'py-2'])->get()
-            ." ".$this->style['active'];
+        $this->color = $color == '' ? config('btui.theme') : $color;
 
-        //dd($this->menu);
     }
 
     /**

@@ -2,7 +2,7 @@
     <div class="relative"
         x-data="{open:false}" @click.away="open = false" @close.stop="open = false" x-cloak>
 
-    <div x-on:click="open = !open" {{ $attributes->merge(['class' => $style." flex justify-between items-center gap-4"]) }}>
+    <div x-on:click="open = !open" {{ $attributes->merge(['class' =>'dropdown dropdown-'.$size ]) }}>
         <div class="">{{ $text }}</div>
         @if($icon)
         <div class="text-gray-500">
@@ -25,8 +25,8 @@
     </div>
     
     <div x-show.transition.origin.top="open"
-        class="absolute z-50 origin-top-{{ $align }} {{ $align }}-0 w-full min-w-min ">
-        <div class="w-full py-1 bg-white border rounded-md shadow-lg ">
+        class="dropdown-linkbox dropdown-{{ $align }}">
+        <div class="bg-white dropdown-links dropdown-links-{{ $size }}">
             {{ $slot }}
         </div>
     </div>
@@ -34,3 +34,13 @@
     </div>
     
 </div>
+
+{{-- version histroy
+    
+    v2.0.4 ---------------------------
+
+    1. css classes replaced.
+    2. sizes changed.
+    3. remove the dropdown-link component need.
+    
+    --}}

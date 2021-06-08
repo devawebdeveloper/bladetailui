@@ -1,7 +1,17 @@
 <div>
-        <a {{ $attributes->merge(["class" => 'bn bn-'.$size.' bn-'.$color.' bn-'.$color.'-outline']) }}>
+        <button {{ $attributes->class(['bn bn-'.$size.' bn-'.$color])->merge(['type' => 'button']) }}>
             {{ $slot }}
-        </a>
+        </button>
 
         
 </div>
+
+{{-- changes history 
+    
+    //v2.0.4 -------------------------------
+
+    1. <a> to <buton>
+    2. set default type = button
+
+    
+    --}}

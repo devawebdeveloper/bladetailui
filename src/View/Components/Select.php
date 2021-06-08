@@ -27,7 +27,7 @@ class Select extends Component
      */
     public function __construct(
         $type="default", 
-        $size = 'md', 
+        $size = '', 
         $options = [], 
         $placeholder = 'Select...'
     ) {   
@@ -35,9 +35,9 @@ class Select extends Component
         $this->options = $options;
         $this->placeholder = $placeholder;
 
-        $color = config('btui.formTypes.'.$type.'.color');
+        //$color = config('btui.formTypes.'.$type.'.color');
 
-        $this->size = $size;
+        $this->size = $size == '' ? config('btui.size') : $size;
         $this->type = $type;
         
     }
