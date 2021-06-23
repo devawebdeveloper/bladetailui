@@ -43,7 +43,7 @@
 
                     <div x-show="menu.{{ $m }}.open">
                         @for($i = 1; $i <= $mv['count']; $i++)
-                            <div class="sidenav-links">
+                            <div class="pl-2 sidenav-links">
                                 {{ ${$m.$i} ?? '' }}
 
                             </div>

@@ -26,8 +26,10 @@ use Devaweb\BladeTailUI\View\Components\{
     Sloader,
     Tabs,
     Toast,
-    Smodal
+    Smodal,
+    Html
 };
+
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -60,6 +62,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
         //layouts
         Blade::component('admin-layout', Adminlayout::class, $prefix);
         Blade::component('hero', Hero::class, $prefix);
+        Blade::component('html', Html::class, $prefix);
 
         //form
         Blade::component('alert', Alert::class, $prefix);
@@ -101,11 +104,11 @@ class BladeTailUIServiceProvider extends ServiceProvider
         //publish
         $this->publishes([
             __DIR__."/config/btui.php" => config_path('btui.php'),
-            __DIR__."./../assets/btui_v2.0.4.css" => public_path('css/btui.css')
+            __DIR__."./../assets/btui_v2.2.0.css" => public_path('css/btui.css')
         ], 'btui');
 
         $this->publishes([
-            __DIR__."./../assets/btui_v2.0.4.css" => public_path('css/btui.css')
+            __DIR__."./../assets/btui_v2.2.0.css" => public_path('css/btui.css')
         ], 'btui-update');
 
         Blade::directive('btuiStyles', function () {

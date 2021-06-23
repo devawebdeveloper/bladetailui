@@ -3,35 +3,18 @@
 namespace Devaweb\BladeTailUI\View\Components;
 
 use App\View\Components\th;
+use Devaweb\BladeTailUI\Traits\btuiBasic;
 use Illuminate\View\Component;
 
 class Navbar extends Component
 {
+
+    use btuiBasic;
+
     //Site Title
     public String $sitename;
 
-    //navbar background class
-    public string $bg;
-
-    //navbar size
-    public string $size;
-
-    //navbar shadow
-    public string $shadow;
-
-    //size styles
-    public array $sCss = [
-        'small' => 'py-2',
-        'normal' => 'py-4',
-        'big' => 'py-6'
-    ];
-
-    //size based header
-    public array $tCss = [
-        'small' => ' text-sm ',
-        'normal' => ' text-xl ',
-        'big' => ' text-2xl '
-    ];
+    public $titleClass;
 
     /**
      * Create a new component instance.
@@ -45,15 +28,11 @@ class Navbar extends Component
      */
     public function __construct(
         $sitename = "No Site Name",
-        $bg = 'transparent',
-        $size = 'normal',
-        $shadow = 'none'
+        $titleClass = ''
     ) {
         $this->sitename = $sitename;
-        $this->bg = $bg;
-        $this->size = $size;
-        $this->shadow = " shadow-".$shadow." ";
-        $GLOBALS['btui']['navbar']['size'] = $size;
+        $this->titleClass = $titleClass;
+        
     }
 
     /**
