@@ -3,4 +3,4 @@
 
 Perfectly comfortable with jetstream livewire stack.
 
-[Full documentation here](https://bladetailui.com)
+[Full documentation here - https://bladetailui.com](https://bladetailui.com)
