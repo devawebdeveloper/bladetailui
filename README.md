@@ -3,6 +3,8 @@
 
 Perfectly comfortable with jetstream livewire stack. otherwise, you must install Alpine Js Manually!
 
+##[Full documentation here](https://bladetailui.com)
+
 ```
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 ```
