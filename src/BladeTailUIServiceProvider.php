@@ -108,7 +108,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
         ], 'btui');
 
         $this->publishes([
-            __DIR__."./../assets/btui_v2.2.0.css" => public_path('css/btui.css')
+            __DIR__."/../assets/btui_v2.2.0.css" => public_path('css/btui.css')
         ], 'btui-update');
 
         Blade::directive('btuiStyles', function () {
