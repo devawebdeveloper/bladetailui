@@ -4,6 +4,7 @@ namespace Devaweb\BladeTailUI\View\Components;
 
 use Devaweb\BladeTailUI\Facades\Btui;
 use Devaweb\BladeTailUI\Traits\btuiBasic;
+use Illuminate\Support\Arr;
 use Illuminate\View\Component;
 
 class Select extends Component
@@ -32,8 +33,23 @@ class Select extends Component
         $placeholder = 'Select...'
     ) {   
 
-        $this->options = $options;
+        $this->options = $options; 
         $this->placeholder = $placeholder;
+
+        
+
+        if(!Arr::isAssoc($this->options)) {
+
+            $opti = [];
+            
+            foreach ($this->options as $opt) {
+                $opti[$opt] = $opt;        
+            }
+
+            $this->options = $opti;
+        }
+
+        
 
         //$color = config('btui.formTypes.'.$type.'.color');
 

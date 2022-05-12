@@ -7,10 +7,10 @@ require_once __DIR__."/Helpers/helpers.php";
 use Devaweb\BladeTailUI\Classes\Btui;
 use Devaweb\BladeTailUI\View\Components\Adminlayout;
 use Devaweb\BladeTailUI\View\Components\Alert;
-use Devaweb\BladeTailUI\View\Components\{ 
-    Button, 
-    Confirm, 
-    Dropdown, 
+use Devaweb\BladeTailUI\View\Components\{
+    Button,
+    Confirm,
+    Dropdown,
     DropdownLink,
     Hero,
     Input,
@@ -40,7 +40,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
      * Register services.
      *
      * @return void
-     */ 
+     */
     public function register()
     {
         App::singleton('btui', function () {
@@ -56,7 +56,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {   
+    {
         $prefix = 'btui';
 
         //layouts
@@ -71,7 +71,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
         Blade::component('dropdown-link', DropdownLink::class, $prefix);
         Blade::component('input', Input::class, $prefix);
         Blade::component('select', Select::class, $prefix);
-       
+
         //nav
         Blade::component('sidenav', Sidenav::class, $prefix);
         Blade::component('nav', Nav::class, $prefix);
@@ -83,7 +83,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
         //modals
         Blade::component('modal', Modal::class, $prefix);
         Blade::component('smodal', Smodal::class, $prefix);
-        
+
         //notifications
         Blade::component('toast', Toast::class, $prefix);
         Blade::component('confirm', Confirm::class, $prefix);
@@ -116,7 +116,7 @@ class BladeTailUIServiceProvider extends ServiceProvider
                 <link rel='stylesheet' href='/css/btui.css' />
                 EOT;
         });
-        
+
     }
 
 
