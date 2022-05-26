@@ -1,4 +1,4 @@
-# BladeTailUI
+# BladeTail-UI
 ### Blade Tailwind UI for Laravel with Alpine JS
 
 Perfectly comfortable with jetstream livewire stack.
