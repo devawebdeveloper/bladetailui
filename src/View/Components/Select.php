@@ -36,7 +36,7 @@ class Select extends Component
         $this->options = $options; 
         $this->placeholder = $placeholder;
 
-        
+        if(is_string($this->options)) $this->options = explode(',',$this->options);
 
         if(!Arr::isAssoc($this->options)) {
 
