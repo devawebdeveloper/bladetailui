@@ -1,0 +1,7 @@
+<div>
+
+    <a {{ $attributes->merge(['class' => ' {{ classNames }}' ]) }}>
+        {{ $slot }}
+    </a>
+
+</div>

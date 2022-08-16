@@ -4,6 +4,26 @@ namespace Devaweb\BladeTailUI;
 
 require_once __DIR__."/Helpers/helpers.php";
 
+use App\View\Components\btui\buttons\Btn;
+use App\View\Components\btui\buttons\BtnLg;
+use App\View\Components\btui\buttons\BtnLink;
+use App\View\Components\btui\buttons\BtnSm;
+use App\View\Components\btui\buttons\primary\Btn as PrimaryBtn;
+use App\View\Components\btui\buttons\primary\BtnLg as PrimaryBtnLg;
+use App\View\Components\btui\buttons\primary\BtnSm as PrimaryBtnSm;
+use App\View\Components\btui\buttons\secondary\Btn as SecondaryBtn;
+use App\View\Components\btui\buttons\secondary\BtnLg as SecondaryBtnLg;
+use App\View\Components\btui\buttons\secondary\BtnSm as SecondaryBtnSm;
+use App\View\Components\btui\forms\Alert as FormsAlert;
+use App\View\Components\btui\forms\AlertDanger;
+use App\View\Components\btui\forms\AlertSuccess;
+use App\View\Components\btui\forms\AlertWarning;
+use App\View\Components\btui\forms\Checkbox;
+use App\View\Components\btui\forms\Input as FormsInput;
+use App\View\Components\btui\forms\Radio;
+use App\View\Components\btui\forms\Select as FormsSelect;
+use App\View\Components\btui\utils\Dropdown as UtilsDropdown;
+use App\View\Components\btui\utils\DropdownItem;
 use Devaweb\BladeTailUI\Classes\Btui;
 use Devaweb\BladeTailUI\View\Components\Adminlayout;
 use Devaweb\BladeTailUI\View\Components\Alert;
@@ -116,6 +136,61 @@ class BladeTailUIServiceProvider extends ServiceProvider
                 <link rel='stylesheet' href='/css/btui.css' />
                 EOT;
         });
+
+        $this->versionThree();
+
+    }
+
+    public function versionThree()
+    {
+
+        $this->loadViewsFrom(__DIR__."/components", 'btui');
+        //buttons
+        Blade::component('btui::btn', 'btn');
+
+        //forms
+        Blade::component('btui::input', 'input');
+        Blade::component('btui::checkbox', 'checkbox');
+        Blade::component('btui::radio', 'radio');
+        Blade::component('btui::select', 'select');
+        Blade::component('btui::textarea', 'textarea');
+
+        //alert
+        Blade::component('btui::alert', 'alert');
+
+        //dropdown
+        Blade::component('btui::dropdown', 'dropdown');
+        Blade::component('btui::dropdown-item', 'dropdown-item');
+
+        //nav
+        Blade::component('btui::nav', 'nav');
+        Blade::component('btui::nav-item', 'nav-item');
+        //sidenav
+        Blade::component('btui::sidenav', 'sidenav');
+        Blade::component('btui::sidenav-item', 'sidenav-item');
+        Blade::component('btui::sidenav-sub-item', 'sidenav-sub-item');
+        //navbar
+        Blade::component('btui::navbar', 'navbar');
+
+        //tabs
+        Blade::component('btui::tabs', 'tabs');
+
+        //modal
+        Blade::component('btui::modal', 'modal');
+        //page
+        Blade::component('btui::page', 'page');
+
+        //notifications
+        Blade::component('btui::toast', 'toast');
+
+        Blade::component('btui::loader', 'loader');
+
+        //mobile
+        Blade::component('btui::bottom-sheet', 'bottom-sheet');
+        Blade::component('btui::mobile-layout', 'mobile-layout');
+
+        //card
+        Blade::component('btui::card', 'card');
 
     }
 

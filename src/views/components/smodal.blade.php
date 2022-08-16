@@ -3,7 +3,7 @@
 
         <div x-on:click="smodal = true" class="">{{ $trigger }}</div>
 
-        <div class="fixed top-0 left-0 right-0 z-50 items-center mx-auto my-12 origin-top bg-gray-400 justify-items-center sm:w-7/12 lg:w-4/12"
+        <div class="fixed top-0 left-0 right-0 items-center mx-auto my-12 origin-top justify-items-center sm:w-7/12 lg:w-4/12"
             x-show="smodal" @click.away="smodal = false"
             x-transition:enter="transition ease-out duration-100"
             x-transition:enter-start="opacity-0 transform scale-90"
@@ -12,7 +12,7 @@
             x-transition:leave-start="opacity-100 transform scale-100"
             x-transition:leave-end="opacity-0 transform scale-90">
 
-            <div class="z-50 w-full bg-white border border-gray-100 shadow-lg">
+            <div class="w-full bg-white border border-gray-100 shadow-lg">
 
                 <div class="flex justify-between p-1 border-b bg-gray-50 ">
                     <div class="pt-0 pl-2 text-lg text-black">
