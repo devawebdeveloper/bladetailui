@@ -4,7 +4,11 @@
     ])
 
 <div>
-    <div x-data="{open:false}" x-cloak >
+    <div x-data="{
+            open:false,
+            pageid: '<?php echo $attributes->get('id'); ?>' }"
+            x-on:page.window="open = ($event.detail.pageid == pageid) ? true : false;"
+            x-cloak >
         {{-- trigger --}}
         <div class="cursor-pointer" x-on:click="open = !open">
             {!! $trigger ?? '' !!}

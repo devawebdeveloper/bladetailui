@@ -17,7 +17,10 @@
             <option class="pr-4 capitalize"  value="">{{ $placeholder == '' ? 'Select...' : $placeholder }} </option>
 
             @empty(!$options)
-            @foreach (explode(',', $options) as $opt)
+            @php
+                $op = is_array($options) ? $options : explode(',', $options);
+            @endphp
+            @foreach ($op as $opt)
 
                 @php
                     $opt = explode('|', $opt);
